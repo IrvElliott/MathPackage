@@ -1,0 +1,118 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>DETERMINANTS</title>
+</head>
+
+<body>
+
+<p><font size="4">DETERMINANTS</font></p>
+<p><font size="4">A determinant is a value that is associated with a square
+matrix. If the value is zero, the matrix is said to be &quot;singular&quot; and
+it has no&nbsp; inverse. One way to obtain the determinant is to use the
+LaGrange expansion. In this, an n by n matrix is expanded into a sum of n terms
+each formed by multiplying one element from row one by a smaller, n-1 by n-1
+matrix formed from other rows rows and columns. For a 2x2 or a 3x3 matrix, the
+process is rather simple, as shown here: </font></p>
+<p><img border="0" src="EvalDetn1.jpg" width="582" height="266"></p>
+<p>For larger matrices, the process is rather wieldy. Each step results in
+lower-order matrices until all matrices disappear. The method is shown here for
+a 4x4 matrix:</p>
+<p><img border="0" src="EvalDetn2.jpg" width="483" height="525"></p>
+<p>The following illustration shows where the signs of&nbsp; the terms
+originate. Each step in the process converts one or more n by n matrices into
+n-1 by n-1 matrices. Each individual conversion introduces an alternating
+sequence of + and -, starting with +.</p>
+<p align="center"><img border="0" src="signs.jpg" width="689" height="388"></p>
+<p>DETERMINANTS OF LARGE MATRICES</p>
+<p>The LaGrange expansion becomes quite tedious for large matrices. An easier
+method using permutations is explained here. The example is just for a 4 by 4,
+but can be applied to all square matrices, large or small. The following table shows all 24 permutations of values 1
+through 4 and, for each permutation, the 4 by 4 determinant terms that are
+generated in accordance with each permutation.. Methods of generating permutations are discussed in another section.
+The columns marked with C's show 0's and 1's, representing plus and minus signs
+introduced if one were to use the LaGrange evaluation method. When the sum of
+the 1's in one row of the C's is even, the term on that row is positive; if
+the sum is odd, the term is negative.&nbsp;&nbsp;</p>
+<p align="left"> <img border="0" src="EvalDetn4.jpg" width="487" height="498"></p>
+<p>As shown in the previous examples, the evaluation of a determinant consists
+of the sum of n! terms; each term is the product of n elements of the matrix and
+is either positive or negative.&nbsp;</p>
+<p>For evaluation of an n by n determinant, we need either a table of&nbsp;
+n-element permutations or a sub-program for generating permutations. During the
+evaluation of a term, one permutation is held in an n-element P array. The
+permutation not only controls the selection of matrix elements for the term, but
+also determines the sign, plus or minus, of the term.&nbsp;</p>
+<p>Notice that there is a relationship between the permutations and the LaGrange
+diagram. The first column of the permutations has four areas, each containing
+all the same value. The first step on the LaGrange diagram produces four
+sub-matrices and their signs alternate +, -, +, -, starting with +. Likewise,
+the second column of permutations and the next level on the diagram have 12
+areas each with like values and each starts with + and&nbsp; the signs
+alternate.. The third step results in 24 single values that also start with +
+and the signs alternate.&nbsp;&nbsp;</p>
+<p>The n-1 values&nbsp; in the C register are determined by comparing each
+permutation to the previous permutation. When the value in one stage of P is
+different from the corresponding stage of the previous permutation PP, the C
+value for that stage is complemented: a 0 becomes a 1 or a 1 becomes a 0. When a
+value is complemented, the values in the higher end of C are reset to 0, which
+corresponds to +.</p>
+<p> The terms and their signs for the determinant of array A are evaluated as follows:</p>
+<p>Step 1: Clear the determinant value, set the sign value to plus (0), set a PP &quot;previous-P&quot; array equal to the first
+permutation and clear an n-element C &quot;change&quot; array. The C array is
+used to hold marks indicating introduced plus or minus signs represented by 0 or
+1..</p>
+<p>Step 2: Perform the following loop for i = 1 through n! to form the terms:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a: Place the ith permutation into
+the P array.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b:&nbsp; Perform a sub-loop
+j = 1 through n to form a product of n elements as follows:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+term = A(1,P(1))*A(2,P(2))*A(3,P(3))*...............etc. through A(n,P(n))</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c: Set a
+&quot;case&quot; flag to 1 then perform a loop to process the first n-1 elements
+of P. For case 1,&nbsp; one P element is compared with the corresponding PP (previous P)
+element. If the elements differ, the corresponding element of the
+C array is complemented (changed 0 to 1, or 1 to 0) and the case flag is set to
+2 so that the rest of the C array elements on
+the right will be processed for case 2.&nbsp; In case 2, the corresponding C
+array element is cleared to 0. The complementing simulates the sign alternating and
+case 2 results in resetting the sign sequence with + for the start of a new
+sub-matrix, to follow the pattern of pluses and minuses on the LaGrange diagram.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c: Save the
+permutation P in the PP array as the previous-permutation.&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d: Count the 1's in
+the C array. If the sum is odd, negate the determinant term. Add the signed term
+to the determinant&nbsp; value.&nbsp;&nbsp;</p>
+<p> The complementing of a zero or one and the counting of the elements of C can be
+done by using a mod-2 count. For example, starting a value x at 0 and performing
+the following operation on x repeatedly results in the following:</p>
+<p>Start x=0;&nbsp; 1-x = 1;&nbsp; 1-x = 0; 1-x = 1;&nbsp; 1-x = 0; etc.</p>
+<p>A mod 2 count can also be used to count the 1's in the C array: the result
+will be 0 for +, 1 for -.</p>
+<p>&nbsp;&nbsp;&nbsp;</p>
+<p>The following illustration is a flow chart for the process.</p>
+<p><img border="0" src="EvalDetn3.jpg" width="559" height="729"></p>
+<p>AN APPLICATION OF DETERMINANTS</p>
+<p>Determinants can be used in Cramer's method to solve sets of simultaneous
+equations. An example is&nbsp; given below. The left side of the equation is
+re-expressed as a matrix A and the right side as a vertical vector B. Next, to
+solve for each of the unknowns, n fractions are generated. Fraction 1 is the
+solution for unknown X1, fraction 2 for unknown X2, etc. The numerator for
+fraction 1 is the determinant for a matrix that is like A but column 1 is
+replaced with the vector B; the numerator for fraction 2 is like A but column 2
+is replaced with B, etc. The denominator for each fraction is the determinant
+for A. The following is an illustration for a 3 by 3 set of equations.</p>
+<p><img border="0" src="CramersMethod.jpg" width="576" height="446"></p>
+<p><font size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Answers:&nbsp; X=3,&nbsp;
+Y=4,&nbsp; Z=5.</font></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

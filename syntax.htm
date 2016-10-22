@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>PROGRAM name</title>
+</head>
+
+<body>
+
+<p>PROGRAM name</p>
+<p>SUBROUTINE name [(argument{,argument}]</p>
+<p>FUNCTION name [(argument{,argument}]</p>
+<p>REAL [GLOBAL] variable {,variable}</p>
+<p>INTEGER [GLOBAL] variable {,variable}</p>
+<p>LOGICAL [GLOBAL] variable {,variable}</p>
+<p>COMPLEX [GLOBAL] variable {,variable}</p>
+<p>[LET] variable = expression</p>
+<p>IF variable relation expression THEN</p>
+<p>END IF</p>
+<p>FOR variable = expression TO expression [BY expression]</p>
+<p>END FOR</p>
+<p>LOOP [WHILE variable relation expression|UNTIL variable relation expression]</p>
+<p>END LOOP</p>
+<p>LABEL</p>
+<p>EXIT LOOP</p>
+<p>EXIT PROGRAM</p>
+<p>EXIT FOR</p>
+<p>CALL name [(argument{,argument}]</p>
+<p>END PROGRAM name</p>
+<p>END SUBROUTINE name</p>
+<p>END FUNCTION name</p>
+<p>-----------------------------------------------------</p>
+<p>program = PROGRAM name ; {declaration}&nbsp; procedural {procedural}&nbsp;
+END PROGRAM ;</p>
+<p>subroutine = SUBROUTINE name [(argument{,argument} ) ]; {declaration}
+procedural {procedural} END SUBROUTINE ;</p>
+<p>function = FUNCTION name [(argument{,argument} ) ]; {declaration} procedural
+{procedural}&nbsp; END FUNCTION ;</p>
+<p>declaration_statement = type [GLOBAL] variable {,variable} ;</p>
+<p>type = INTEGER | REAL | LOGICAL | COMPLEX</p>
+<p>procedural =&nbsp; replacement | structure |&nbsp; io_statement </p>
+<p>replacement = variable = arith_expression ;</p>
+<p>io_statement = ???</p>
+<p>structure = if_structure | for_structure | loop_structure | while_structure</p>
+<p>if_structure = IF variable relational_operator THEN ;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+procedural {procedural} </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[ELSE IF variable relational_operator THEN ; ]</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+procedural {procedural} </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[ELSE]</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+procedural {procedural} </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+END IF ;</p>
+<p>for...............</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

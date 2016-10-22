@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>PERMUTATIONS</TITLE>
+	<META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+	<META NAME="CREATED" CONTENT="0;0">
+	<META NAME="CHANGEDBY" CONTENT="Irv Elliott">
+	<META NAME="CHANGED" CONTENT="20150713;20392604">
+	<META NAME="ProgId" CONTENT="FrontPage.Editor.Document">
+	<META HTTP-EQUIV="Content-Language" CONTENT="en-us">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P>PERMUTATIONS AND COMBINATIONS</P>
+<P>CASE 1</P>
+<P>If I have n objects, all different, there are n! (n factorial)
+ways to arrange them. Each arrangement is a &quot;permutation&quot;.
+If we assign each object a value from the set 1 through n, each
+permutation can be represented by a particular sequence of those
+values. For example, for n=3, the permutations can be represented by
+the following sequence: 123, 132, 213, 231, 312, 321. In each term,
+there are n values; the values in each permutation are 1 through n and thus, are
+all different.
+For n objects, the number of permutations is n!, which is equal to
+the product 1*2*3*..........n.</P>
+<P>CASE 2</P>
+<P>If I have n objects and I select m of them and I don't care how
+the selected items are arranged, I have selected a &ldquo;combination&rdquo;.
+For selecting m objects from a collection of n, the number of
+possible combinations is n!/((n-m)!*m!). For example, if you wish to
+select a five-member basketball team from a class of 30 students,
+there are 30!/(25!*5!) =&nbsp; 142506 ways of doing that.</P>
+<P>CASE 3</P>
+<P>If I have n objects and wish to select m of them and want to know
+all ways of arranging the selected ones, the possible number of ways
+is n!/(n-m)!. For example, if  you have ten club members and you
+wish to select three for president, vice president and treasurer,
+there are 10!/7! = 120 ways of doing that.</P>
+<P>For case 1, there are several ways to generate the n!
+permutations. One method is to simulate an n-stage counter for which
+each stage, when advanced, counts 1 through n. Normally, such a
+counter would produce a very large number of n-digit counts: n to the
+nth power. However, it is possible to alter the simulation such that
+each count that contains one or more duplicate digits is skipped. For
+example, a simple 4-stage mod 4 counter would normally produce 256
+counts but if could be modified to generate only 24 (4!) counts that
+would satisfy the &quot;no duplicate&quot; rule and the other counts
+would be skipped.</P>
+<P>MODE 1 METHOD</P>
+<P>This chapter describes the method of programming such a counter.
+In it, an array P is used to hold the n stages of a P register P(1)
+through P(n). For purposes of description, the P(1) stage is
+described as being on the &quot;left&quot; and P(n) is on the
+&quot;right&quot;. An index, ip, is used to reference a particular
+stage of P. The flow chart for the procedure is shown in the
+following diagram. The following steps describe the method for mode 1.</P>
+<P>Step 1: Initially, the P register is set to the lowest-count permutation
+1,2,3,.......n.</P>
+<P>Step 2:&nbsp; The current P register content is used or recorded.
+Next, the ip index is set to n because each of the following
+permutations is produced by attempting to advance the count at stage n by one. 
+</P>
+<P>Step 3:&nbsp;&nbsp; If stage P(ip) is equal to n, its maximum
+value, ip is backed by one.&nbsp; This is the equivalent of a carry
+operation to the stage to the left.&nbsp; If the stage to the left
+also contains the value n, the carry operation repeats. An exception
+is that, if ip is 1, there is no stage to the left and the program
+quits. This happens after the last permutation is generated and used.</P>
+<P>Step 4: If the value in stage P(ip) is not n, a loop is executed to find the
+next higher legal value to put into the stage. P(ip) is advanced by 1
+and is tested to see if its value is a duplicate of what is in the stages to
+the left. If it is, it is illegal and step 4 is repeated. If the P(ip) value reaches n and no legal count has been found, step
+3 is repeated. If
+the value is legal, the program advances to step 5.</P>
+<P>Step 5: After stage p(ip) has been given a new value, the stages
+to the right of ip are then filled with a sorted sequence of legal
+values. To do this, a counter k is set to 1 then checked for
+legality. If it is legal, ip is advanced and the k value is put into
+P(ip). A value is legal if it is not duplicated in the stages to the
+left of ip. If it is not legal, k is advanced and the test is
+repeated. This test is repeated until all stages to the right are
+filled with new values. After this, step 2 is repeated.</P>
+<P>The sequence of permutations for n=4, reading top to bottom in column 1, then
+column 2, etc. is as follows:</P>
+<P><IMG SRC="Perms4x4.jpg" NAME="graphics1" ALIGN=BOTTOM WIDTH=320 HEIGHT=191 BORDER=0></P>
+<P>One method of testing a count for legality is first to assume the
+count is legal, then to perform a loop to see if any stage to the
+left of ip contains a value that is a duplicate of that value. If it
+does, the value is illegal. An improvement that speeds up the process
+is to introduce another n-element test register T that hold marks
+indicating which counts are assigned to places in P. Before each
+permutation is generated, all n stages of T are set to 1 to indicate
+that all counts are in P. When ip is backed from a stage, that
+stage's count is removed from T. When a count is replaced in P, the
+old count is unmarked in T and the new count is marked. Thus, the&nbsp;
+&quot;1&quot; marks in T indicate which stages are to the left of ip
+and the &quot;0&quot; marks indicate which values are available to be
+assigned. Thus, instead of performing loops to check legality, a
+value k is tested for legality by merely looking in T(k).&nbsp; 
+</P>
+<P>&nbsp; 
+</P>
+<P>&nbsp;</P>
+<P ALIGN=CENTER><IMG SRC="Permute.jpg" NAME="graphics2" ALIGN=BOTTOM WIDTH=621 HEIGHT=806 BORDER=0></P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>MODIFICATIONS FOR MODE 3</P>
+<P>In mode 3, the permutations are generated as in mode 1, except that, for each
+permutation, an attempt is made to advance stage m by one count. Also, the
+stages to the right of m are unmarked in the T register. Thus, the process is
+like that for mode 1 except that (n-m)! operations are bypassed. Also, the
+program only outputs the first m stages of P. This results in n!/(n-m)! m-valued
+permutations. </P>
+<P>MODIFICATIONS FOR MODE 2</P>
+<P>In mode 2, each output is a combination, whereas each permutation is an
+arrangement of values. Thus, the combination 1234 is the same combination as
+1342. Mode 2 is implemented the same as mode 3 except that each m-valued
+permutation is tested during generation to assure that the counts in the stages
+increase in value from left to right. If they do not, that m-valued permutation
+marks a &quot;cancel&quot; flag that suppresses its output. This eliminates m!-1
+of the m! permutations of each m-valued mode 3 outputs so that the number
+of&nbsp; outputs is n!/((n-m)!*m!). </P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+</BODY>
+</HTML>

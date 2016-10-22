@@ -1,0 +1,96 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>INTRODUCTION</title>
+</head>
+
+<body>
+
+<p>INTRODUCTION</p>
+<p>This document describes some programming tasks that I have encountered in the
+past. Back in the late 1940's, I graduated with a degree in Chemical
+Engineering. My first job was in a battery factory. There, employees were
+getting lead poisoning. I would wear a new pair of jeans to work and by evening,
+they would be full of acid holes. I heard that Engineering Research Associates,
+in St. Paul, was building giant computers, so I went there to apply. Because I
+had some army experience in electronics and in writing articles for the
+University of Minnesota's &quot;Technolog&quot; magazine, I received a job in
+the publication department. At that time, a typical computer filled a small
+auditorium with 7-foot tall cabinets and a 45 horsepower blower to cool the
+vacuum tubes. They said that I could write
+instruction books telling people how to maintain and program the computers. I
+replied that I didn't now anything about computers and they told me,
+&quot;Neither does anyone else!&quot; After a few years, I switched jobs. The
+company was developing a new computer and I became a programmer on the project.
+At that time, all programs were written in octal machine code. I wrote a number
+of utility routines for that project.</p>
+<p>Some of the employees left to form Control Data Corporation. Their specialty
+was building large-scale computers. I took a job with them and my first task was
+to write an assembler that allowed customers to write programs in coding that
+resembled IBM's assembly language. At that time, Fortran was introduced to the
+world, so I also wrote a Fortran compiler. At that time, that compiler was the
+world's fastest; many times faster than Big Blue's. The Association for
+Computing Machinery started publishing algorithms in a language called Algol.
+Control Data hired a pair of programmers to write an Algol compiler. Years have
+passed, and Algol has fallen by the wayside.</p>
+<p>A friend of mine &quot;jumped ship&quot;; he and some other engineers formed
+a small company that designed a transistorized computer that needed no air conditioning. He convinced me that the
+design was a winner, so I joined his company. There, I wrote them an assembler
+and a Fortran compiler. We were all going to get rich! Unfortunately, the
+company went bankrupt after a year.</p>
+<p>I applied for a job at Honeywell. At that time, they had a giant digital
+computer and a large analog computer. In general, programming was performed by a
+programming department. Engineers were supposed to ask the programmers to code
+for them. The computers were used to simulate aircraft controls. For a while, I worked on digital programs to solve
+differential equations. The company bought a small company that built
+breadbox-sized computers and wanted to use them to control measurement devices
+that were used to test aircraft instruments. I became involved with that; I
+wrote a primitive operating system that allowed a number of the smaller
+computers to act as a network of testers. Because the systems were used at
+airports and factories throughout the country, I often traveled to customer
+sites where most computing was done in assembly language or non-structured
+Fortran for IBM machines. The method of writing a program was to make flow charts,
+then to implement the task by using many &quot;go to&quot; statements. I attended a
+lecture on structured programming and became &quot;hooked&quot; on the
+structured concept. I wrote a program called &quot;SPTRAN&quot; that allowed one
+to write structured programs with no flow charts and with no go-to statements.
+This program would convert the programs into the non-structured form. This
+caught on and the engineering staff started to use it to write their own programs. </p>
+<p>The testing of aircraft controls and of other devices became a global task. A
+committee designed an ATLAS language for that purpose. The language was
+specified in BNF&nbsp; (Backus-Naur-Format) notation. This is a notation that is
+used to represent the structure of a language. Perhaps you can remember a
+teacher asking you to &quot;diagram&quot; a sentence by showing the verb, the
+noun, the adjectives, etc. The BNF notation can do that, but uses only the
+characters found on a keyboard instead of using a chart with words and lines. There were many pages
+of BNF; however, there was no compiler for the language. One day, I was walking
+my dog and had the thought: &quot;Those fellows&nbsp; that wrote the Algol
+compiler included the BNF for the language into their compiler. Their program
+traveled through the BNF like a person walking in a maze while scanning the
+source code like reading a road map.. Whenever the path fit a
+section of the input coding, their program would drop off pieces of the
+equivalent machine code.&quot; When I returned to work, I wrote an interpreter
+that entered the ATLAS BNF like a maze and dropped off assembly language for our
+computer.&nbsp;As a result, we had a compiler that was rather small and ran
+fast. Subsequently, I used&nbsp; the same scheme to write a special-purpose
+compiler for a weapons system. That method of writing a compiler is
+described&nbsp; in this document, in the COMPILER section. </p>
+<p>So, after 35 years in the&nbsp; computer business, I retired. I was
+privileged to see the birth of many marvelous things. At Univac, Jack Hill took
+a wheel the size of an auto tire and covered it with a new product called
+&quot;magnetic tape&quot;. He added read/write heads and thus invented the first
+magnetic storage device; that eventually involved into the magnetic disk. Vacuum
+tubes were replaced with small transistors which were replaced later with small
+dots of silicon or germanium on a chip. Some of the first computers were 40 feet
+long; today, you can buy one that fits on your wrist.&nbsp; Years ago, people
+calculated with a hand-cranked calculator; now, cell phones are thousands of
+times smarter than the computer that guided men to the moon. </p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

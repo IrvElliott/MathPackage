@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><META content="IE=5.0000" http-equiv="X-UA-Compatible">
+
+<META http-equiv="Content-Language" content="en-us"> 
+<META http-equiv="Content-Type" content="text/html; charset=windows-1252"> 
+<META name="GENERATOR" content="Microsoft FrontPage 4.0"> 
+<META name="ProgId" content="FrontPage.Editor.Document"> <TITLE>FLIGHT 
+SIMULATION</TITLE> </HEAD> 
+<BODY>
+<P>FLIGHT SIMULATION</P>
+<P>One application of vectors and matrices is the simulation of the flight of an
+ aircraft or spacecraft. For this, the programmer has to set up two X-Y-Z
+ coordinate systems:&nbsp; a global X Y Z system for the flying space and a local
+x y z system for the aircraft. The global system is used to record the craft's position in
+ space. The local system is used to specify the shape of the craft and to 
+control its roll, pitch and yaw. Control can be either automatic or by manual 
+input. The simulation can be converted to into a real-time two or three
+ dimensional display. </P>
+<P>The shape of the aircraft must be specified by a number of local system
+ points on the "skin" of the craft; e.g., one for the craft nose, one for the 
+tail, one on each wing tip, etc. A refinement would be to specify lines between 
+the points such that the resulting triangles or squares would specify small 
+areas that make up the skin of the craft. One important addition is a 
+velocity vector, from the tail to the nose. That vector would indicate
+ the global X Y Z flight direction and magnitude of the velocity. The local origin should be
+ at the center of rotation of the craft (center of the wing for an airplane), 
+the x pointing to the right, the y pointing straight ahead and the z upward. 
+This satisfies the "right-hand rule" used for implementing rotations. The global 
+X-Y-Z system would be similar: e.g., X to the east, Y north and Z upward. </P>
+<P>A timing system "clock" variable should cause periodical input of control 
+parameters from the "pilot" (automatic or manual). These would then alter the 
+craft's roll, pitch, yaw and velocity and that would result in local system 
+vector rotations and velocity magnitude changes. The local system information 
+would then be transferred to the global system by adding the local coordinates 
+to a vector extending from the global origin to the craft's global position.
+Roll is the change in the x-z angle, pitch is the y-z angle change and yaw is
+the x-y change.</P>
+<P>If&nbsp; the craft is a helicopter, two more coordinate systems would be
+ necessary: one for the top rotor and another for the tail rotor. The points and
+ lines representing the blades would be rotated, using vector rotations, and 
+added to the craft's local coordinates. Also, another coordinate system could be
+included to display three-dimensional scenery, such as trees, buildings and mountains.
+ The scenery display could be&nbsp; made to change as the craft moved.</P>
+<P>Other refinements: One would be to have the boundary points of each
+ square or triangle on the craft specified in the same (counter-clockwise) order
+ so that the display could use vector cross-products to form &quot;normal
+vectors&quot; from them to determine if the element of the surface is facing
+ towards or away from the viewer. For example, if the X axis points to the
+viewer, each triangle having a normal vector with a positive X component would
+be facing the viewer and thus could then be filled
+ with color. Ones facing away would not be displayed. Another feature would be to have
+ the magnitudes of all displayed items adjusted larger or smaller,
+ depending upon the simulated distance away from the viewer.</P>
+<P>PURSUIT AND ANTI-COLLISION CONTROL</P>
+<P>This section describes the method of controlling an aircraft to chase
+another, usually for a friendly craft to get close enough to fire guns or a
+missile at an enemy. Instinct tells us that the friendly craft should just point
+toward the enemy craft and speed ahead. This would be like a bulldog chasing a
+cat; the dog would follow an unnecessarily curved path. A better way would be to
+head for a &quot;lead&quot; point ahead of the enemy. The control method causes
+this to happen.</P>
+<P>The primary requirement is that the friendly aircraft must be faster than the
+enemy. The following diagram illustrates a typical chase in just two dimensions.
+The progressive &quot;bearing angles&quot; (global X Y angles) between the two crafts are indicated by
+numbered lines starting with 1. Each line is for one time increment. The control
+method is based upon the fact that, if these craft are to arrive together in the
+shortest time, the angle between them should not change. At each point in time,
+the pilot notes how the global bearing angle between the crafts is changing,
+clockwise or counter-clockwise. If so, the pilot changes the plane's direction
+the same way by an angle that is equal to the bearing angle change. Soon,
+the bearing angle is no longer changing and the two crafts meet.</P>
+<P><img border="0" src="Pursuit.jpg" width="681" height="418"></P>
+<P>The theory behind the control method can also be used to avoid collisions. If
+the bearing angle between two crafts is not changing, the two are destined to
+collide. To avoid collision, one pilot or both must change speed or direction
+such that the bearing
+angle changes.&nbsp; </P>
+<P>A refinement used to design a device for automatically controlling collisions in
+space is to extend the method to three dimensions. The calculations for the
+control algorithm then involves three-dimensional vector arithmetic. The bearing
+angles are then calculated by using the vector cross product and the adjustments
+to the friendly aircraft are made by adding vectors. </P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P></BODY></HTML>

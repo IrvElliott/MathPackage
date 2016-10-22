@@ -1,0 +1,46 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>CONTOUR PLOTTING</title>
+</head>
+
+<body>
+
+<p>CONTOUR PLOTTING</p>
+<p>Contour lines can be used if there is a need for a map showing&nbsp; how some
+measurable quantity is spread over a surface. For example, a weather map showing
+temperatures or air pressure over an area. The input for the contour line
+plotter described here must be in the form of a matrix. If the original data is
+in the form of a map with measurements taken at points scattered throughout an
+area, the the measurements must be interpolated to be in matrix form. For
+example, if there are 100 scattered temperature measurements to be represented
+by a 20 by 25 matrix, interpolation must be used to determine the temperature at
+each of the 500 matrix elements.</p>
+<p>The process first reads the matrix and determines the maximum and minimum
+values and the range (maximum-minimum). Next, a loop is performed to determine a
+plotting interval that will result in a reasonable number of contour line
+values; at least 4 and no more than 10. Each test chooses an interval value of
+the form 1, 2 or 5 times 10 to some integer power. Some examples: 1,&nbsp;
+2,&nbsp; 5,&nbsp; 10, 20, 5*10^3.</p>
+<p>Next, lines are drawn to represent the matrix as a squared-off rectangle. For
+example, a&nbsp; 20 by 25 matrix would&nbsp; show as an array of 19 by 24
+squares.</p>
+<p>Next, for each contour increment and for each square, the process examines
+each of the four sides to see if the contour value lies between the matrix
+values at each end of the side. If the value is in range for two sides, a point
+on each side having the contour increment is determined by interpolation and a
+line is drawn between the two points. If three sides pass the test, two lines
+are drawn as a &quot;V&quot;. If all four pass, two crossing lines are drawn. </p>
+<p>If different colors can be used for printing, each unique valued contour line
+is of a different color.&nbsp; </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

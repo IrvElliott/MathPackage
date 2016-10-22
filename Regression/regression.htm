@@ -1,0 +1,251 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>REGRESSION ANALYSIS AND CURVE FITTING</title>
+</head>
+
+<body>
+
+<p>REGRESSION ANALYSIS AND CURVE FITTING</p>
+<p>In all of the formulas used in this document, variables are represented by
+names beginning with a letter optionally followed by one or more letters or
+digits, multiplication is represented by a star (*), division by a slash (/) and
+raising a value to a power is represented by two stars (**). This is done
+because those are the conventions used in most computer programming languages.</p>
+<p>If we have several sets of measurements of an independent variable X and a
+dependent variable Y, and we want to determine the relationship between the X
+and Y values, it may be informative to plot the values of X and Y. As an
+example, assume that we have an oven and we would like to create a formula for
+predicting the oven temperature versus the time it has been turned on. If we
+start the oven then record several samples of the elapsed time and the
+temperature, the data and the plot may look like this:</p>
+<p><img border="0" src="ov0out.jpg" width="800" height="424"></p>
+<p>Next, we may attempt to create a &quot;target formula&quot; that gives the
+relationship of temperature to time, as follows:</p>
+<p align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img border="0" src="ov1out.jpg" width="599" height="424"></p>
+<p>Temperature = C*Time where C is a constant.</p>
+<p>This can be done manually by drawing a straight line through the cloud of
+points, trying to assure that the sum of the vertical distances from each point
+to the line is at its minimum, then by determining C, the slope of the line. The
+above graph shows a number of points for the oven example and a line chosen
+manually.</p>
+<p>A simpler way is to use a process called &quot;regression analysis&quot;. In
+psychology, the term &quot;regression&quot; refers to the return to a previous
+state. For example, an adult being psychoanalyzed may temporarily
+&quot;regress&quot; mentally to childhood. The term sounds as though it is the
+opposite of &quot;progression&quot; and it implies a return to a simpler state.
+In mathematics, the term &quot;regression&quot; means to determine the
+relationship between several independent variables and one dependent variable.
+For the above example with just one independent variable, the regression formula
+for C is as follows:</p>
+<p align="center"><img border="0" src="C.jpg" width="119" height="88"></p>
+<p>MORE THAN ONE INDEPENDENT VARIABLE</p>
+<p>By using regression analysis, you can find the linear relationship of several
+independent variables to one dependent variable. To use the process, one would
+first record a large number of samples of the independent variables and the
+corresponding dependent variable, then perform calculations to determine a
+formula that would approximate the recorded data. For example, the target
+formula for four independent variables X1 through X4 and a single dependent
+variable y will be as follows:</p>
+<p>Y=C1*X1+C2*X2+C3*X3+C4*X4</p>
+<p>In the process, the selection of the constants C1 through C4 is such that the
+sum of the squares of the differences between each original point and the
+corresponding value of the calculated formula is minimum. Each difference is
+squared because some differences will be positive and some negative. Selecting
+the result such that the sum of the differences squared is a minimum gives the
+same final C's as selecting the result such that the sum of the absolute values
+of the differences is at a minimum..</p>
+<p>A simple example for the multiple independent case: if we want to find a
+simple formula for determining the approximate speed of a race horse based upon
+the horse's age, leg-length and weight, we would record the age, leg-length and
+weight (independent variables) and speed (the dependent variable) of a large
+number of horses, then apply &quot;regression analysis&quot; to find a formula.
+Thus, the process converts (regresses) the mass of data to a simpler state: a
+concise mathematical expression. For example, for the horse-speed problem, the
+input data are as follows:</p>
+<p align="center"><img border="0" src="HorseIn.jpg" width="272" height="170"></p>
+<p>As indicated by the square brackets, the input data is supplied in the form
+of a matrix of measured independent values (here called X) and a vector of the
+measured dependent variable (here called Y). Matrix X has m rows and n columns,
+where m is the number of measurement sets and n is the number of independent
+variables. Vector Y has m values of the measured dependent variable.</p>
+<p>SPEED = C1*AGE + C2*LEGLENGTH + C3*WEIGHT</p>
+<p>where C1, C2 and C3 are constants determined by the regression process.</p>
+<p>Each row contains one set of measurements: an age, a weight, a leg-length and
+the resulting speed. The first column of matrix X holds five values of age, the
+second column holds the five weights, the third column holds the leg-lengths and
+the single column of Y holds the five speeds. Admittedly, only five sets of
+measurements would provide a poor sample; it would be better to have about 100
+measurement sets. Only five are shown here to save space in this document. No
+graph is shown for this example, because there are four variables and it would
+be difficult to show the points in four dimensions!</p>
+<p>MATHEMATICAL DERIVATION OF THE PROCESS</p>
+<p>For the horse example, the independent values are shown as a m by n matrix,
+the dependent values as a vector of dimension m and the resulting C values as a
+vector of dimension n, where m is the number of sample sets and n is the number
+of independent variables.</p>
+<p>If the values of C are calculated correctly, the sum of the squared errors is
+at a minimum and is as follows:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img border="0" src="SumErrsSq.jpg" width="220" height="68"></p>
+<p>We can re-express this equation for finding the minimum error C values into a
+matrix arithmetic notation, as follows:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img border="0" src="CSimEq1.jpg" width="201" height="54"></p>
+<p><img border="0" src="CSimEq2.jpg" width="255" height="167"></p>
+<p>For the horse problem, the set of equations would be as follows: </p>
+<p><img border="0" src="HorseIn.jpg" width="272" height="170"></p>
+<p>The results for the horse problem are: </p>
+<p><img border="0" src="horseout.jpg" width="552" height="100"></p>
+<p>REGRESSION USING INDEPENDENT FUNCTIONS</p>
+<p>In the above examples, the independent items X1, X2, etc. were just simple
+numeric values. Regression can also be used to generate a relationship of <u>functions</u>
+versus a dependent variable. For example, if we go back to the original OVEN
+problem, we see that the line on the graph does not fit the points very well.
+One reason is that the target formula</p>
+<p>Y = C * X where Y = temperature and X = time</p>
+<p>forces the Y to be zero when the X is zero. Another reason: a curved line
+would fit the points better. We can improve the fit by using the following
+target formula:</p>
+<p><img border="0" src="Ov5eqn2.jpg" width="334" height="64"></p>
+<p>Notice that the left-hand column contains m ones. This is because X to the
+power zero is equal to one, no matter what the value X may be. This is a trick
+to introduce a constant into the target equation, and thus, to avoid having the
+line to go through the graph origin (x=0, y=0).</p>
+<p>For the oven calculation by this method, the resulting C values are:</p>
+<p><img border="0" src="ov5out1.jpg" width="135" height="110"></p>
+<p>The resulting graph below shows that the line for the calculated function now
+fits the points better. The mean square error value is considerably better than
+for the first oven temperature calculation.</p>
+<p><img border="0" src="ov5out2.jpg" width="595" height="440"></p>
+<p>&nbsp;</p>
+<p>The regression calculation is tailored for determining the constants in a
+target equation consisting of a number of terms separated (if more than one
+term) by &quot;+&quot; operators. Each term pf the target equation is a constant
+to be determined that is multiplied by a variable or function of a variable.</p>
+<p>Some equations do not fit this pattern. For example, suppose that someone has
+an experiment in which an organic material grows exponentially. For this case,
+the target formula may be as follows:</p>
+<p>V = k1*exp(k2*T)</p>
+<p>where V is the volume, T is the elapsed time and k1 and k2 are to be found.</p>
+<p>The target formula can be converted to the form required for the regression
+calculation by re-expressing it by taking the logarithm of both sides, as
+follows:</p>
+<p>ln(V) = ln(k1) + k2*T</p>
+<p>Next, several measurements are made. The X matrix for the regression
+calculation should then consist of an m by 2 matrix with the left column all 1's
+and the right column containing the m values of T. The Y vector should hold the
+m values of ln(V). The solution [C0,C1] will provide C0=ln(k1) , from which we
+can determine that k1=exp(C0), and k2=C1.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<font FACE="Times New Roman" LANG="JA">
+<p>CORRELATION</p>
+<p>In review: the regression calculation has two steps: (1) from m sets of
+measurements of n independent variables and one dependent variable, form a
+system of n simultaneous equations for n unknowns and (2) solve the simultaneous
+equations. There are certain conditions for which the solution to a set of
+simultaneous equations cannot be solved. If one equation of the set of n
+equations is a multiple of another equation of the set, one of those equations
+would be redundant and thus the system would only have m-1 meaningful equations;
+thus, the system could not be solved. Similarly, it can be shown that, if one
+column of values for a particular variable is a multiple of another, the system
+will also be unsolvable.</p>
+<p>When the calculations are performed on a computer, a problem may occur when
+one row is <u>almost</u> the multiple of another. A similar problem may occur if
+a column is almost a multiple of another. This may causes a numeric overflow: an
+attempt to form a number that is too large to represent in the computer's
+system.</p>
+<p>In a regression calculation, errors of these sorts occur when a variable that
+was chosen to be independent is, instead, very similar to some other variable
+that was chosen to be independent. To check for these conditions in the
+regression X matrix, we can calculate the </font><font LANG="JA">&#12539;</font><font FACE="Times New Roman" LANG="JA">gcorrelation
+coefficient</font><font LANG="JA">&#12539;</font><font FACE="Times New Roman" LANG="JA">h
+for each combination of two columns. This coefficient ranges from 0 to 1. If the
+value is 0, the columns are not similar. If the value is 1, they are similar and
+one of the two columns should be eliminated and the corresponding variable
+should be dropped from the problem.</p>
+<p>The correlation coefficient is easier to explain if we review some simple
+vector math. A vector is a set of two or more numbers, sometimes represented in
+parentheses or square brackets and usually separated by commas. If a vector has
+m elements, it is said to be </font><font LANG="JA">&#12539;</font><font FACE="Times New Roman" LANG="JA">gm-dimensional</font><font LANG="JA">&#12539;</font><font FACE="Times New Roman" LANG="JA">h.
+A two or three dimensional vector is often used to represent a direction and a
+magnitude, such as on a map of wind speeds. Four two-dimensional vectors
+identified as A, B, C and D are shown in the following figure.</p>
+<p><img border="0" src="vectors.jpg" width="355" height="429"></p>
+<p>The </font><font LANG="JA">&#12539;</font><font FACE="Times New Roman" LANG="JA">gmagnitude</font><font LANG="JA">&#12539;</font><font FACE="Times New Roman" LANG="JA">h
+of any vector, denoted by surrounding the vector identifier with vertical bars,
+is equal to the square root of the sum of the squares of its elements; thus, for
+vector A, the magnitude (length) is the square root of 16+9, or 5. To us, for a
+vector of m dimensions, the magnitude may be difficult to imagine because we
+live in a three dimensional world; however, it is defined in the same way, as</p>
+<p><img border="0" src="mag.jpg" width="160" height="86"></p>
+<p>The following chart presents the magnitude for each of the vectors A, B, C
+and D and the correlation coefficients for four combinations of two vectors.</p>
+<p>???????????????????????????vecdata</p>
+<p>For the regression problem, each column of the X matrix should be paired with
+the other columns and the correlation coefficients for each pair should be
+examined. This can be a byproduct of step 1 of the regression calculation: the
+matrix multiplication of X by the transpose of X. For example, if the input data
+X matrix is 10 by 4, we can denote the four columns of X as vectors X1, X2, X3
+and X4. Using the dot product notation, the matrix resulting from the matrix
+multiplication of the regression step two calculation is shown below on the
+left. A matrix of correlation coefficients can be generated by copying this
+matrix and then dividing each element by the absolute values of the vectors used
+to obtain the dot product, as shown on the right.</p>
+<p><img border="0" src="dotmats1.jpg" width="350" height="160"></p>
+</font><font FACE="Times New Roman" LANG="JA">
+<p>For a perfect case, in which all of the X column vectors are orthogonal to
+each other, the n by n matrix and the correlation matrix would be as follows:</p>
+<p><img border="0" src="dotmats2.jpg" width="350" height="150"></p>
+</font><font FACE="Times New Roman" LANG="JA">
+<p>However, the need for forming the above matrix and vector would be redundant.
+The entire regression operation would then simply consist of n smaller steps to
+find the n C coefficients. Each step would be to form two dot products as shown
+in one row in the above diagram, then to divide one dot product by the other to
+get a C value.</p>
+<p>SOME ORTHOGONAL FUNCTIONS</p>
+<p>In review: in our three-dimensional world, the dot product of two vectors is
+equal to the product of the two vector magnitudes times the cosine of the angle
+between them. If the dot product is zero, the vectors are at right angles to
+each other and the vectors are said to be orthogonal to each other. The dot
+product is the sum of the products of of the elements. Similarly, the dot
+product of two functions F1(x) and F2(x) is the integral of the functions over a
+particular range. The two functions are said to be orthogonal if this integral,
+calculated for a certain range, is zero.**fdotf</p>
+</font>
+<p>&nbsp;</p>
+<font FACE="Times New Roman" LANG="JA">
+<p>Sines and Cosines</p>
+<p>Chebyshev Polynomials</p>
+<p>Legendre Polynomials </p>
+<p><img border="0" src="sinxcos.jpg" width="620" height="445"></p>
+<p>The integral of a function gives the area under a curve of the function;
+thus, the area that is shaded is equal to the integral of the product of sine
+and cosine.. If we think of the integral as the summation of a very large number
+of equally spaced samples of the product, the shaded area of the graph is
+similar to the dot product of vectors of m sine and m cosine values. Thus, the
+integral of the product of two functions is called dot product of the functions.
+Note that, on the sine and cosine graph, the shading shows two positive areas
+and two similar negative areas: thus, the total area is zero and the two
+functions are therefore orthogonal.</p>
+<p>The sine-cosine functions are used for frequency analysis. For example, if we
+analyze a musical chord, the process can be used to identify the notes of the
+chord. The sound could be digitized and then, each note would result in a value
+of the C constant for that note. If the sampling intervals are very small, m can
+be assumed to be infinity and each C could be calculated as follows:</p>
+<p>**ci ?????</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</font>
+<p>. .</p>
+
+</body>
+
+</html>

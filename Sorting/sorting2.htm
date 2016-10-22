@@ -1,0 +1,172 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>SORTING</title>
+</head>
+
+<body>
+
+<p><img border="0" src="4TapeSmall.jpg" width="689" height="879"></p>
+<p>ALPHANUMERIC SORTING</p>
+<p>An alphanumeric sort program rearranges items such that they are in
+alphabetic order. The term &quot;alphanumeric&quot; means that the alphabet of
+the items to be sorted is extended so that it starts with the digits 0 through 9
+and then is followed by A through Z and lower-case letters a through z.&nbsp; In
+a previous part of this document,&nbsp; a computer program for sorting numeric
+values is described as a procedure that compares values arithmetically and
+rearranges the values in a &quot;sorting order&quot;. The desired order is such
+that each value is equal or greater than the preceding value. A program for
+sorting alphanumeric items is similar, but the desired order is such that each
+item is in alphabetical order. To accomplish that, the computer also compares
+items arithmetically. This is possible because characters are represented in the
+computer as numeric values. One representation is called &quot;ASCII&quot;,
+meaning <strong>American Standard Code for Information Interchange</strong>.
+Some of the numeric ASCII codes are as follows:</p>
+<p>SOME ASCII CHARACTER CODES<br>
+(in decimal)<br>
+<br>
+Null&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0<br>
+Space&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 32<br>
+Comma&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 44<br>
+Period&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 46&nbsp;<br>
+0 through 9&nbsp;&nbsp;&nbsp; 48 through 57&nbsp;<br>
+A through Z&nbsp;&nbsp; 65 through 90&nbsp;<br>
+a through z&nbsp;&nbsp;&nbsp;&nbsp; 97 through 122</p>
+<p>SORT KEYS</p>
+<p>In a set of items to be sorted, each item can consist of one or more lines
+(records) of characters. Each item to be sorted has a &quot;key&quot; that is a
+region in the item that is used to compare with similar regions in other items
+to determine the sorting order. For example, in file representing the members of
+a club, the first line may contain a last-name followed by a comma and the first
+name and middle initial, the second and third lines may be the address, the
+fourth line could be a phone number and the last line, an e-mail address. The
+file would then be sorted&nbsp; by using the last name as the key. Another
+example of a key used for sorting mail would be a 5-digit area code key located
+at a specific place in each item.</p>
+<p>COMPARING KEYS&nbsp;</p>
+<p>In describing sorting programs, mathematical terms are used to describe
+comparisons between two alphanumeric items. For example, when the key of
+character string A is compared to a key of string B, one condition might be
+expressed as A&gt;=B, meaning A is greater or equal to B. In a numeric
+comparison, this is simple to understand. For an alphanumeric comparison, that
+notation means that, in a set of sorted items, item A should be&nbsp; next to B
+or farther up the line than B.&nbsp;</p>
+<p>CHARACTER-BY-CHARACTER COMPARISON</p>
+<p>Note that, for the letters, the codes increase in value from A to Z; thus,
+the code values from A to Z are in numerically sorted order and arithmetic
+comparisons can be made for determining sorting order.&nbsp;For example, to
+compare the following two words, one could use a Compare function as shown
+below.&nbsp;</p>
+<p>In a numeric sort, the items are arranged such that they are increasing
+numeric value. If item A is followed by item B, then we can denote that by
+A&lt;=B. In an alphanumeric sort, the expression A&lt;=B has a somewhat
+different meaning. If items A and B are character strings, it is more
+complicated to compare them. though they may be of different lengths, they are
+treated as though they are of equal length. If &nbsp; We use the notation
+A&lt;=B , we mean that, in the sorted file, A is followed by B; however, the
+items are arranged as in a dictionary, with all the ones that begin with the
+letter &quot;a&quot; coming first, then all beginning with the letter
+&quot;b&quot;, etc. In the subset &nbsp;beginning with &quot;a&quot;, the items
+are sorted in order by the second character, etc. A structured dialog for
+comparing alphanumeric items A and B is as follows:</p>
+<p><img border="0" src="Compare1.jpg" width="542" height="239"><br>
+</p>
+<p>For example, if two keys A and B are SMITH and SMYTH, the function determines
+that the first two characters of both character strings are the same but the
+third of each are different. The Y is of higher code value than the I, so B is
+greater than A. In a sort, SMITH should come before SMYTH.</p>
+<p>WORD-BY-WORD COMPARISON</p>
+<p>A computer memory consists of &quot;words&quot;. Each word consists of a
+certain number of &quot;bits&quot;. In the following example, consider a
+hypothetical computer with each word having 32 bits and thus capable of holding
+four eight-bit characters.&nbsp; Thus, the words SMITH and SMYTH would each be
+represented as two words, as follows:</p>
+<p>Word1&nbsp;&nbsp; Word2&nbsp;</p>
+<p>SMIT&nbsp;&nbsp;&nbsp;&nbsp; H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(The H is followed by 3 blanks)&nbsp;&nbsp;&nbsp;</p>
+<p>SMYT&nbsp;&nbsp;&nbsp; H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(The H is also followed by 3 blanks)</p>
+<p>If these items were to be compared by using the character-by-character
+method, six characters would have to be extracted and three letter comparisons
+made before it was discovered that SMYTH was larger than SMITH.</p>
+<p>To the computer, the four characters in each word forms a very large value.
+Each character has a code value; each 8-bit shift from the rightmost position to
+to the left&nbsp; is like a multiplication by 256. Thus, the values of the words
+are the following:</p>
+<p>SMITH Word1=83*256*256*256+77*256*256+73*256+84 =1397573972</p>
+<p>SMITH Word2=72*256*256*256+32*256*256+32*256+32 =1210064928</p>
+<p>SMYTH Word1=83*256*256*256+77*256*256+89*256+84 =1397578068</p>
+<p>SMYTH Word2=72*256*256*256+32*256*256+32*256+32 =1210064928</p>
+<p>By comparing the first word of SMITH numerically with the first word of
+SMYTH,&nbsp; one would immediately find the SMYTH is larger. Thus, no characters
+need to be extracted and only one comparison is necessary.</p>
+<p>SOME PECULIARITIES</p>
+<p>Years ago, most computer input was in the form of punched cards. For
+alphanumeric data, both cards and magnetic tape used a six-bit character set.
+This limited the character set to 64 codes. Because they had to include letters,
+digits, punctuation characters and function codes such as tab and carriage
+return, only upper-case letters were included. Nowadays, most computer data is
+in the ASCII 8-bit code and both upper and lower case letters are allowed. In
+most sorting jobs, the input is in both cases. For example, the sorting for a
+dictionary. When the sorting is done, the key comparisons should treat the
+characters as they are all in one case. A trick can be used to cause this to
+happen. If we represent the key word &quot;Smith&quot; in ASCII in two 32-bit
+computer words, with three blanks following the letter &quot;h&quot;, the bit
+pattern is as shown on the top line of the next example.</p>
+<p>Smith words &nbsp;&nbsp;&nbsp; 01010011 01101101 01101001 01110100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+01101000 00100000 00100000 00100000&nbsp;&nbsp; (S m i t h blank blank blank)</p>
+<p>mask
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+00100000 00100000 00100000 00100000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+00100000 00100000 00100000 00100000</p>
+<p>SMITH words&nbsp; 01010011 01001101 01001001 01010100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+01001000 00100000 00100000 00100000&nbsp;&nbsp; (SMITH blank blank blank)</p>
+<p>Note that the ASCII lower and upper case letters each differ by the decimal
+value 32, which, in 8-bit binary, is 00100000. For that reason, during a sorting
+key compare, one can perform a computer OR operation on the Smith words with a
+&quot;mask&quot; as shown in the illustration; thus converting the key to
+all-upper-case SMITH.</p>
+<p>The masking should only be done during the key comparison. The output of the
+sort should have the original lower-case letters.</p>
+<p>Another peculiarity about alphanumeric sorting is that digit characters are
+treated in the same manner as letters. For example, in a numeric sort, the value
+50 will be put before the value 101. I n an alphanumeric sort, &quot;101
+Dalamations&quot; would be put before &quot;50 Shades of Gray&quot;.</p>
+<p>VARIABLE LENGTH KEYS</p>
+<p>For some sorts, the keys in the items vary in length. For example, in a
+person-directory file, each&nbsp; key may consist of a last name followed by a
+comma, a space, a first name, a space, a middle initial then a period. For this
+case, the compare algorithm could be for an indefinite number of characters and
+be augmented with a test for a period. The comparison would be stopped when a
+period is found. For a dictionary sort, both the 32-masking and detection of a
+final blank space could be used. Another way would be to check the key for the
+ending character and, if that character is not the rightmost&nbsp; character of
+a word, to fill the bits to the right with blanks.</p>
+<p>LARGE CHARACTER CODES</p>
+<p>In years past, most data was entered via punched cards. The combinations of
+holes were limited and the alphanumeric character codes were limited to 0
+through 63. Only upper-case letters were allowed. In binary, the values in this
+range are 000000 through 111111. For this reason, most computers had words with
+a bit-length that was a multiple of six. Any letter of value greater than 31 had
+a &quot;1&quot; as the leftmost digit of the six-bit binary value.
+Unfortunately. if the left-most word of a sort key started with a character with
+a 1 bit in the left position, a one's-complement or twos-complement computer
+would interpret the word as negative. For that reason, the compare algorithm had
+to complement that bit in each word of the key. A 1 bit would be changed to 00
+and a 0, to 1. This would essentially fool the computer so that the words
+beginning with 0 were converted into negative values and the ones with a leading
+1 became positive. The numeric values of each word changes but the sorting
+comparisons are the same.&nbsp;</p>
+<p>The reason this had to be done is apparent if one pretends we have a computer
+with a three-bit word length and do the conversion, as follows:</p>
+<p><img border="0" src="Left-BitChange.jpg" width="505" height="448"></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

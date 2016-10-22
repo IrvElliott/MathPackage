@@ -1,0 +1,55 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>CORRELATION</title>
+</head>
+
+<body>
+
+<font SIZE="3">
+<p>CORRELATION</p>
+<p>When some square matrix operations are performed on a computer, a problem may
+occur when one row is a multiple or equal of another. For example, for a set of
+simultaneous equations, one such row can be multiplied then subtracted from the
+other and the system would then have a zero row and the problem would be
+unsolvable. A similar problem may occur if a row or column is almost a multiple
+of another. This may causes a numeric overflow an attempt to form a number that
+is too large to represent in the computer's system. An attempt to find the
+inverse of such a matrix will fail. Such a matrix is called
+&quot;singular&quot;, which is another way of saying it is bad.</p>
+</font>
+<p>To check for these conditions, we can calculate the &quot;correlation
+coefficient&quot; for each combination of two columns. As was explained in the
+VECTOR discussions in this document, the dot product of
+two vectors of dimension two or three produces a result of |A|*|B|*cos(theta),
+where theta is the angle between them. When the dot product of two vectors of
+dimension greater than three is formed, the result is considered to be
+|A|*|B|*C, where C is the correlation coefficient. Like the cosine, the value
+ranges from 0 to 1. If the value is 1, the two vectors are multiples of, or
+equal to, each
+other; if the value is 0, they are said to be &quot;orthogonal&quot;.&nbsp;</p>
+
+<p>If one performs experiments, such as upon mixtures of ingredients, it is
+advisable to form an m by n matrix of the amounts of ingredients, where m is the
+number of mixtures and n is the number of&nbsp; different ingredients. One can
+then multiply the transpose of that matrix by the matrix then divide each
+element by the absolute values of the columns to give a matrix of correlation
+coefficients, as follows:</p>
+
+<font SIZE="3"></font>
+
+<p>&nbsp;<img border="0" src="dotmats1.jpg" width="350" height="160"></p>
+
+<p>For a perfect case, in which all of the X column vectors are orthogonal to
+each other, the n by n matrix and the correlation matrix would be as follows:</p>
+
+<font FACE="Times New Roman" LANG="JA">
+<p><img border="0" src="dotmats2.jpg" width="350" height="150"></p>
+</font>
+
+</body>
+
+</html>

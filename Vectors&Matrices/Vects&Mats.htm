@@ -1,0 +1,314 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>THE MATRIX PACKAGE</title>
+</head>
+
+<body>
+
+<p>VECTORS AND MATRICES</p>
+
+<p>In this document, multiplication is indicated by a star (*) and division is
+indicated by a slash (/). This is done because the x-style multiplication sign
+and dash with two dots for divide are not available in most computer character
+fonts.</p>
+
+<p>A &quot;vector&quot; is like an arrow flying in a certain
+direction, with a head, a tail, and a magnitude (length). In a two-dimensional
+world, such as&nbsp; a map, a vector can be represented on paper as an arrow.
+The arrow length can represent some variable such as length or velocity. A
+series of vectors can thus represent a path taken on the ground, or the
+directions and velocity of a traveling vehicle.&nbsp;Mathematically, a vector is usually represented by a name
+topped with a short horizontal bar that is sometimes
+followed by a set of n value &quot;elements&quot; in square brackets. The elements can be either numeric values or variable
+expressions. The &quot;dimension&quot; of the vector is n, the number of
+elements. In the text of this document, the bar over the vector name is skipped
+because it is not printable in the letter font. Some examples for a
+three-dimensional vector are as follows:</p>
+
+<p>&nbsp;A[6,7 9]&nbsp;&nbsp; &nbsp;B[ i, j, k]&nbsp; &nbsp; C[3, k+m, 17]&nbsp;</p>
+
+<p>Each element denotes a displacement in an n-dimensional reference space: for
+example, for two dimensions, the horizontal and vertical directions on a graph
+or the east and north directions on a map. The vector notation does not necessarily specify the location of a vector in
+the reference space. It just specifies the x and y differences from the head to the tail.</p>
+
+<p>TWO-DIMENSIONAL VECTORS</p>
+
+<p>If&nbsp; n=2, the elements are the length
+in the x direction and the length in the y direction, where x and y are are perpendicular to each other. Certain vector calculations can
+be performed on two-dimensional vectors. The next illustration shows two cases
+to demonstrate these calculations.&nbsp;</p>
+
+<p><img border="0" src="triangles.jpg" width="256" height="202"></p>
+
+<p>VECTOR ADDITION: In Case 1, to add&nbsp; vector B to A, the tail of B is
+placed at&nbsp; the head of A and that results in vector C.&nbsp; Mathematically, each element of B is added to the corresponding element of A and is placed
+into the corresponding element of C, as follows:</p>
+
+<p><img border="0" src="VectAdd.jpg" width="168" height="111"></p>
+
+<p>VECTOR SUBTRACTION : Similar to addition, but the elements of B are
+subtracted from the elements of A.</p>
+
+<p>VECTOR MAGNITUDE: Case 1 also shows that the components of C are x=3 and y=4
+and these are at right angles to each other. In accordance with the Pythagorian
+relationship, vector C is the hypotenuse of a right triangle and the square of
+the hypotenuse is equal to the square of the sum of the other two sides.&nbsp;
+Thus,&nbsp;</p>
+
+<p><img border="0" src="Mag.jpg" width="218" height="110"></p>
+
+<p>For case 1,&nbsp; |C| = square root of&nbsp; 3x3 + 4x4&nbsp; =&nbsp; 5</p>
+
+<p>Case 2 shows a case of vector addition for which the triangle is not a right
+angle. This can be used to develop the formula for finding the length&nbsp;of
+the third side of a triangle when the other two sides are known:</p>
+
+<p><img border="0" src="ThirdSide.jpg" width="552" height="414"></p>
+
+<p>VECTOR SCALAR OR DOT PRODUCT&nbsp;</p>
+
+<p>Another procedure that produces a numerical value is the &quot;scalar
+product&quot; but is often called the &quot;dot product&quot; because it is
+represented&nbsp; by placing a dot between two vector names. Case 2 of the
+previous illustration shows two vectors A and B with an angle theta between
+them. The dot product is formed by multiplying each element of A by the
+corresponding element of B and adding the results together. The result&nbsp; is
+equal to the magnitude of A multiplied by the magnitude of B multiplied by the
+cosine of the angle between A and B. This is useful when something is being designed
+and there is a need to know the angle between two straight pieces. One can form
+the dot product, divide it by both the magnitude of A and B, then look up the
+angle in a table of cosines.</p>
+
+<p><img border="0" src="Dot.jpg" width="670" height="296"></p>
+
+<p>THREE-DIMENSIONAL VECTORS</p>
+
+<p>We live in a three-dimensional world. Three-dimensional vectors are useful
+for many tasks, such as guiding aircraft, creating 3-D displays and model objects for 3-D
+printers. Three-dimensional vectors can be added or subtracted and the magnitude
+can be calculated by using the same methods used for the two-dimensional ones,
+except that the value of &quot;n&quot; is 3. Also, in 3-D there is another
+mathematical operation called the &quot;cross product&quot;. The input for that
+operation is two vectors. Any two vectors A and B not pointing in the same
+direction establish a flat &quot;plane&quot; between them. The operation creates
+a third vector C that is perpendicular to that plane. The direction of C is away
+from one side of the plane or the other, depending upon whether the operation is performed on
+A followed by B, or on B followed by A. The magnitude of the third vector is
+|A|*|B|*sin(theta), where theta is the angle between the vectors.&nbsp;The following diagram can be used as an aid to remembering
+how to calculate the cross product.</p>
+
+<p><img border="0" src="VectCross.jpg" width="614" height="361"></p>
+
+<p>The cross product is useful in designing, displaying and 3-D printing
+three-dimensional objects. The skin of the object is represented as covered with
+small triangles. Each triangle is represented by three points that provide data
+for vectors. If the points are specified in a counter-clockwise order, the cross
+product vector for the triangle points to the inside of the object; otherwise,
+to the outside, During a 3-D display, the triangles having cross-product vectors
+pointing away from the viewer are on the far side of the object and thus are not
+visible.</p>
+
+<p>N-DIMENSIONAL VECTORS</p>
+
+<p>A column or row of n numbers can be treated as a vector. For example, solving
+a set of simultaneous equations for 10 variables involves multiplying, adding
+and subtracting what amounts to 10-dimensional vectors. For that application,
+not only rows of values but also columns of values are treated as vectors. Many
+operations on matrices involved steps involving rows and columns treated as
+vectors.</p>
+
+<p>The vector add, subtract, magnitude and dot product operations for vectors of
+more than dimension 3 are similar to those for dimensions 2 and 3-- just more
+terms to handle. One difference is that the &quot;cosine of the angle
+between&quot; is called the &quot;correlation coefficient&quot;. It is equal to
+1 if the two vectors are identical or multiples of each other; if they are not
+and the coefficient is 0, the two vectors are said to be &quot;orthogonal&quot;
+to each other, which is hard to imagine but is of great use when performing
+experiments.&nbsp;</p>
+
+<p>IN REVIEW</p>
+
+<p>Some additional diagrams are presented here to help the reader remember the
+rules for vector addition, subtraction, magnitude and dot product. These rules
+are for n-dimensional vectors, whether n=2 or 3 or larger.</p>
+
+<p><img border="0" src="AddSub.jpg" width="500" height="500"></p>
+
+<p><img border="0" src="Magnitude.jpg" width="454" height="223"></p>
+
+<p><img border="0" src="DotProd.jpg" width="444" height="272"></p>
+
+<p>MATRICES</p>
+<p>A matrix is a rectangular array of values with m horizontal rows and n
+vertical columns, where m and n are integers. Matrices are useful for performing
+many calculations such as the solving of simultaneous equations, plotting
+contours, creating data for 3-D displays and 3-D printing, forecasting the
+weather and simulating aircraft flights. The symbol for a matrix consists of a
+name. Sometimes, the name is surrounded by square brackets, as follows: [A]. When accessing an element
+of a matrix, the matrix name is used followed
+by two integer indices in square brackets, as follows: A[2,5]. The indices refer to the row number
+(top row = 1) and the column number (left column = 1) of the element. </p>
+<p>There are some mathematical procedures that can be performed on matrices:</p>
+<p>MATRIX TRANSPOSE</p>
+<p>Matrix transpose is used to convert an m by n matrix into an n by m matrix,
+denoted by a letter in brackets and a superscript T</p>
+<p><img border="0" src="MatTransp.jpg" width="822" height="499"></p>
+<p>MATRIX MULTIPLY </p>
+<p>C = A * B,&nbsp; where A is of dimensions x by y, B is of dimensions y by z
+and C is x by z. Each horizontal row of matrix A and each vertical column of B
+is treated as a vector of dimension y; the resultant C is x by z. Each element
+of of the resultant C is the vector dot product of a particular combination of a
+row of A and a column of B, as shown below for A of dimension 6 by 4 and for B
+of dimension 4 by 5. </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+C </p>
+<p><img border="0" src="MatMult.jpg" width="848" height="372"></p>
+<p>SQUARE MATRICES</p>
+<p>There are some special versions of matrices that are square. The &quot;diagonal&quot; matrix consists of all 0's except for values in the diagonal elements from [1,1] to
+[n,n]. A &quot;unity&quot; matrix is a diagonal matrix with all 1's in the diagonal. A
+&quot;tri-diagonal&quot; is like the diagonal but has values on either side of
+each diagonal element. Examples for 5 by 5&nbsp; matrices are as follows: </p>
+<p><img border="0" src="Diagonals.jpg" width="255" height="304">&nbsp; </p>
+<p>SQUARE MATRIX OPERATIONS</p>
+<p>Square matrices are used in many mathematical procedures. One operation that
+is a part of most of these procedures is to reduce the matrix to a unit matrix
+by performing the following row operations: multiply all elements in a row by a
+constant, add or subtract elements of a row from those of another row or
+interchange rows. One example of a reduction procedure is as follows:</p>
+<p>For each row i,</p>
+<p>&nbsp; Divide all elements in the row by the &quot;pivot&quot; element A(i,i).
+This leaves the pivot at 1.</p>
+<p>&nbsp; For each other row j,</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Determine a multiplier V from element A(j,i)
+that is in the same column as the pivot.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Subtract V times each element of the pivot row
+from the corresponding element of row j. This zeroes out the element A(j,i).</p>
+<p>&nbsp; End of row j operations.</p>
+<p>End of row i operations.</p>
+<p>The next diagram illustrates some square matrix procedures.</p>
+<p>MATRIX INVERSE</p>
+<p>The &quot;inverse&quot; of an n by n matrix is different from the transpose
+of A. The inverse is a matrix such that, if A is multiplied by the inverse of A,
+the result is the unit matrix I, as shown in the first area of the next diagram.
+The method of finding the inverse is shown in the second area of the diagram. A
+unit matrix is appended to the right of A then row operations are performed to
+reduce A to a unit I matrix; however, the n row operations are performed upon
+the entire combination of A and I. The result is that the original A matrix
+becomes a unit matrix and the original unit matrix becomes the inverse of A.</p>
+
+<p>Some samples of 3 by 3 matrices and their inverses:</p>
+
+<p>| 1&nbsp; -1&nbsp; -1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 5&nbsp;&nbsp; 3&nbsp;&nbsp; -1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| 1&nbsp;&nbsp; 0&nbsp;&nbsp; 0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| 1&nbsp;&nbsp; 0&nbsp;&nbsp; 0 |&nbsp;</p>
+
+<p>| -1&nbsp; 2&nbsp;&nbsp; 3 |&nbsp;&nbsp;&nbsp; inverse =&nbsp; |&nbsp;
+7&nbsp;&nbsp; 5&nbsp;&nbsp; -2
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| 3&nbsp;&nbsp; 1&nbsp;&nbsp; 0 |&nbsp;&nbsp;&nbsp; inverse =&nbsp;
+|-3&nbsp;&nbsp; 1&nbsp;&nbsp; 0 |</p>
+
+<p>| 1&nbsp;&nbsp; 1&nbsp;&nbsp; 4
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| -3&nbsp; -2&nbsp;&nbsp;&nbsp; 1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| 4&nbsp;&nbsp; 5&nbsp;&nbsp; 1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|11&nbsp; -5&nbsp; -1|</p>
+
+<p>SIMULTANEOUS EQUATIONS</p>
+
+<p>If one is provided by n equations in n independent variables, there is a
+convenient matrix method of solving them. For example, for three variables A B
+and C, one would set up a matrix and an n-vector as follows:</p>
+
+<p>6*A + 5*B + 12*C =
+42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6&nbsp;&nbsp; 5&nbsp;&nbsp; 12&nbsp;&nbsp;&nbsp; 42</p>
+
+<p>4*A + 3*B + 10*C = 30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-----&gt;&nbsp; 4&nbsp;&nbsp; 3&nbsp;&nbsp; 10&nbsp;&nbsp; 30&nbsp;&nbsp;</p>
+
+<p>5*A + 6*B + 11*C =
+56&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5&nbsp;&nbsp; 6&nbsp;&nbsp; 11&nbsp;&nbsp; 56</p>
+
+<p>As shown in the third area of the diagram, the square of&nbsp; left-side
+values X is appended to the right by the vector Y of right-side values. To solve
+the system, n row operations are performed on the combined n by n+1 matrix to
+reduce the X part to a unit I matrix. The resulting values of the Y vector will
+then be the answers for variables A, B and C.</p>
+
+<p><img border="0" src="SquareMatOps.jpg" width="600" height="600"></p>
+<font SIZE="3">
+<p>CORRELATION</p>
+<p>When some square matrix operations are performed on a computer, a problem may
+occur when one row is a multiple or equal of another. For example, for a set of
+simultaneous equations, one such row can be multiplied then subtracted from the
+other and the system would then have a zero row and the problem would be
+unsolvable. A similar problem may occur if a row or column is almost a multiple
+of another. This may causes a numeric overflow an attempt to form a number that
+is too large to represent in the computer's system. An attempt to find the
+inverse of such a matrix will fail. Such a matrix is called
+&quot;singular&quot;, which is another way of saying it is bad.</p>
+</font>
+<p>To check for these conditions, we can calculate the &quot;correlation
+coefficient&quot; for each combination of two columns. As was explained in the
+VECTOR discussions of this document, the dot product of
+two vectors of dimension two or three produces a result of |A|*|B|*cos(theta),
+where theta is the angle between them. When the dot product of two vectors of
+dimension greater than three is formed, the result is considered to be
+|A|*|B|*cc, where cc is the correlation coefficient. Like the cosine, the value
+ranges from 0 to 1. If the value is 1, the two vectors are multiples or equals of each
+other; if the value is 0, they are said to be &quot;orthogonal&quot;.&nbsp;</p>
+
+<p>If one performs experiments involving several X values, it is
+advisable to form an m by n matrix for which m is the
+number of experiments and n is the number of&nbsp; different X variables. One can
+then multiply the transpose of X by X then divide each
+element by the absolute values of the columns to give a matrix of correlation
+coefficients, as follows:</p>
+
+<p>&nbsp;<img border="0" src="dotmats1.jpg" width="350" height="160"></p>
+
+<p>For some procedures such as the solution of simultaneous equations, the
+coefficients on the diagonal should be the value 1 and the other elements should
+be less&nbsp; than one. For a perfect case, in which all of the X column vectors
+are orthogonal to each other, the n by n matrix and the correlation matrix would
+be as follows:</p>
+
+<font FACE="Times New Roman" LANG="JA">
+<p><img border="0" src="dotmats2.jpg" width="350" height="150"></p>
+
+<p>VECTOR&nbsp; ROTATION</p>
+<p>The rules for rotating a vector by an angle theta assume that the X-Y-Z coordinate system is in
+accordance with the &quot;right-hand rule&quot;. The cross-product of the X axis
+and the Y axis should result in a Z axis vector. In other words, if a person
+holds up a right hand, points the thumb up and curves the fingers as to move the
+X axis to the Y,&nbsp; the thumb will point up to represent Z. For example, X
+could point east, Y then would point south and Z would point upward.</p>
+<p>In two dimensions, vector rotation by an angle theta is accomplished by
+multiplying the vector by the first matrix shown below. For three dimensions, rotation
+about axis X, Y or Z one would use the second, third or fourth matrix below.
+Rotation to some intermediate position can be accomplished by performing more
+than one of the multiplications sequentially.</p>
+<p align="center"><img border="0" src="VectRotate.jpg" width="393" height="519"></p>
+</font>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>SORTING</title>
+</head>
+
+<body>
+
+<p><font size="6">SORTING</font></p>
+
+<p>There are several varieties of programs to sort information. Numeric sorts
+are used to sort arithmetic values, such as the cost figures in a spreadsheet.
+These are usually used to sort a set of values that are held in memory.
+Normally, a sort program rearranges values from beginning to end such that each
+value, except the last,&nbsp; is followed by a value that is equal or larger. An
+exception would be a numeric sort that starts with the largest value and ends
+with the smallest, like a list of famous baseball players and their batting
+averages arranged best to worst.</p>
+<p>Alphanumeric sorts are used to sort items alphabetically, like the entries in
+a dictionary. Each item of the set to be sorted may consist of one or more lines
+of text. All or a part of one line contains a consecutive string of characters
+called the &quot;key&quot;. The sorting program sorts the file by converting the
+key into numeric form, then sorting the set in the same manner as a numeric
+sort. Usually, when each item is rearranged, the key and all other information
+in each item is kept together. An example would be a membership file with each
+item containing a line having the person's last name, a comma, the first name
+and a
+middle initial, followed by two lines for an address, then a line for a phone number.
+In that example, the sorting key could be the last name followed by a comma and
+the first name.</p>
+<p>Often, the quantity of information to be sorted is so large that it would not
+fit into the computer memory; for example, a New York City telephone book. An
+early program for sorting such information was invented when memory was
+small and magnetic tapes were used as a form of external memory. It was called
+the &quot;Four-Tape Sort&quot; and is described in this document. The principles
+used in that sort program could be used to write a sorting program using some type of external
+memory other than tapes, such as four or more files on external discs or flash drives. </p>
+
+<p>There are two categories of procedures for sorting sets of numerical or
+alphabetical items: one is an &quot;in-memory&quot; sort in which the entire set
+of items to be sorted are held in random-access memory and the other is the
+&quot;sort-merge&quot; for which the data is so large that it won't fit into the
+computer's random-access memory.</p>
+<p>IN-MEMORY SORTS</p>
+<p>The simplest method of sorting is the &quot;interchange sort&quot;, also
+known as the &quot;bubble sort&quot;. It is like the procedure used by army
+drill sergeants to arrange a column of soldiers in order of increasing height.
+The method is that each soldier who has a person in front of him that is taller
+than he is, taps that person on the shoulder then exchanges places with him.
+After a all the shuffling is over, the column will be sorted by height. This
+procedure is also called the &quot;bubble sort&quot; in that it is like every
+bubble in a liquid rising until it is smaller or equal to the neighboring higher
+bubbles.</p>
+<p>A computer procedure for the method consists of an outer loop that starts by
+clearing a flag and an inner loop that scans through the entire data and
+performs any necessary interchanges. The flag is set in the inner loop if any
+interchange is performed. The inner loop is followed by a check of the flag. If
+the flag has not been set, no interchange has been performed during the last
+inner loop. If this is the case, the outer loop is terminated because the data
+is in sorted order. For the worst case, starting with n items in reverse order,
+the number of comparisons are n squared minus n. Bubble sort in simple structured
+language is as follows:</p>
+<p><img border="0" src="Sorts3.jpg" width="322" height="305"></p>
+<p>A better method is the &quot;quick sort&quot;. The process has a stack that
+is used to register regions of the data that may not be in sorted order and thus
+require processing. Initially, the region from 1 to n is registered, where n is
+the total number of items. An outer loop obtains the indices of one such region
+from the stack then clears that entry from the stack. Next, two inner loops
+split the region into a lo-value area and a high-value area. Each of the
+resulting two regions is, if having more than one item, scheduled in the stack.
+Thus, the process recursively splits each region into zero, one or two sub-regionss
+then processes them, if necessary, until the stack is empty and thus the total
+region is in sorted order.</p>
+<p>The quick-sort is like a game played on a football field covered with stones
+to be sorted. Initially, the region to be sorted (1 through n) is marked on a
+schedule board. Next, the following operations are performed repeatedly by two
+players until the schedule is empty.&nbsp;</p>
+<p>The indices of one region are read from the schedule and the values are
+scrubbed from the schedule. A referee picks up a stone from anywhere inside the
+indicated region and it is used as a standard. A player on the left-end of the
+region is told to walk toward the right over stones that are smaller than the
+standard but stop when either the stone in front of him is larger or equal to
+the standard or he is face-to-face with the other player. A person on the right
+is told to walk to the left over stones that are equal or greater than the
+standard but to stop when either the stone in front of him is smaller or he is
+face-to-face with the other player. If both players are stopped and there are
+two or more stones between them, the referee interchanges the two stones then
+the process continues. When both players meet face-to-face, the region region on
+the left consists of small items and the region on the right, of large items. If
+the left region has more than one item, it is then marked on the schedule board.
+The region on the right is treated in the same manner..</p>
+<p>When there are no more areas on the schedule, the entire set of stones will
+be in sorted order, small to large. For the worst case, the number of
+comparisons is n times the log to the base 2 of n. Thus, for the sorting of 256
+items in reverse order, the quick sort is about 16 times faster than the bubble
+sort.</p>
+<p><img border="0" src="Qsort.jpg" width="602" height="560"></p>
+<p>LARGER-THAN-MEMORY SORTING</p>
+<p>If the set of items to be sorted is larger than the available rapid-access
+memory and is thus stored on one or more external storage devices, sorting must
+be accomplished by a &quot;sort pass&quot; and one or more &quot;merge
+passes&quot;. In years past, the external devices were magnetic tapes. Now, the
+devices could be disk files or flash drives. This type of sort is usually used
+for sorting alphanumeric data. The following is a simple example that describes
+the older method using four magnetic tape units. Other sort-merge configurations
+using additional tapes, disk files or flash drives could be created to operate
+in a similar manner. As shown in the following diagram, the simplest process
+uses four tape units identified as unit 1 through unit 4.&nbsp;</p>
+<p>The sort pass produces small, sorted sub-sequences and writes them
+alternately on tapes 3 and 4. Initially, one item is read from tape 1 and is
+written onto tape 3 to start a sub-sequence. Next, items are read repeatedly
+from tape 1. If an item is equal or greater than the previously-written item, it
+is also written onto tape 3. If the item is smaller, writing is changed to tape
+4 and the item is written as the start of a new sub-sequence. Similar operations
+are then performed to write the new sequence onto tape 4, until a small item is
+encountered and then the writing is switched back to tape 3. The process
+continues in that manner such that the sub-sequences are written alternately to
+tapes 3 and 4.</p>
+<p><img border="0" src="Sorts1.jpg" width="461" height="125"></p>
+<p>An alternate method for the sort pass can be used if there is sufficient
+memory space. In it, a block of items is read into memory from tape 1 and is
+sorted by an in-memory method. This is done repeatedly and each block is
+alternately written onto tape 3 or 4.</p>
+<p>Each merge pass is similar but the input items are from two input tapes.
+Initially, two blank tapes are placed on units 1 and 2. The first merge pass
+reads items from both tape 3 and tape 4, checks them for being larger, equal or
+smaller than the previously written item, and writes alternately on tapes 1 and
+2. A new sub-sequence is started when both input items are smaller than the
+previously-written item.&nbsp; Each merge pass produces longer sub-sequences.
+After a few merge passes, all of the items are on one tape in sorted order.</p>
+<p><img border="0" src="Sorts2.jpg" width="784" height="327"></p>
+<p>A flow chart for the Four Tape Sort is as follows: </p>
+
+<p>&nbsp; </p>
+
+</body>
+
+</html>

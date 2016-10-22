@@ -1,0 +1,177 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>CONTOURS</title>
+</head>
+
+<body>
+
+<p class="Standard">CONTOURS</p>
+
+<p class="Standard">Contour lines provide a means of showing a third dimension
+on a two-dimensional graph. For example, a map of an area may show lines that
+each pass through points of equal altitude. Thus, if the area contains hills, the map could have contour lines for every
+100 feet of elevation. The
+lines around each hill would appear as a set of concentric loops. An example
+is shown in Figure 1.</p>
+<p class="Standard" align="center"><img border="0" src="map.jpg" width="410" height="305"></p>
+<p class="Standard">Contours can be used to represent many different variables;
+for example, temperatures, heights, air pressure, population density, and votes
+cast by different political parties. The U. S. Weather Bureau uses maps showing
+air pressure to track storms and to determine wind speed and thus to aid in
+forecasting the weather. A variation that is used on television is the weather
+map covered with colored areas with each area representing a different range of temperatures or inches of snow or rain. For these, each area between contour
+lines is shown in a different color. For example, a blue color might be used
+between the temperature contour lines for degrees 0 and 10 degrees.<o:p>
+</o:p>
+ &nbsp;</o:p>
+</p>
+<p class="Standard">GENERATION OF CONTOUR LINES<o:p>
+</o:p>
+</p>
+<p class="Standard"><o:p>
+The first step in forming a contoured diagram is to have a two-dimensional
+diagram or map and to have a set of points for which the value of each is known.
+If a computer is to be used, the location of each point can be specified by x and y and the
+value of the point by v.<o:p>
+</o:p>
+</p>
+<p class="Standard"><o:p>
+One method that was once used by cartographers to obtain the height values for
+maps was to mount a camera in an airplane and to fly over an area in a path that
+consists of overlapping strips of land, as shown in the next illustration. The
+camera was built to have a rolling spool of film driven by a motor that was
+synchronized to the speed of the aircraft. The plane was carefully controlled to
+maintain a constant altitude. Objects in the overlapped region were then seen in
+both a left and a right view, as in a stereograph. In a lab, the resulting
+strips were placed side by side and examined by a person using an instrument
+that resembled a microscope but had two eyepieces and a rolling base. The device
+could be rolled above a pair of images and adjusted to make the two views of the
+top of the object appear to coincide. The plane’s altitude, object spacing and
+instrument setting would then be used to compute the height of the object. Thus,
+it was possible not only to measure the height of land features such as hills,
+but also the height of telephone poles and buildings. </p>
+<p class="Standard" align="center"><img border="0" src="Aerial.jpg" width="550" height="392"></p>
+<p class="Standard" align="left">Nowadays, the task is much simpler because the
+plane can have an altimeter radar that measures the distance to the ground and
+is connected to a GPS device and a digital recorder. <o:p>
+</p>
+<p>When generating a contoured diagram, it is necessary to select a set of
+contour values chosen such that the range extends over the measured point value
+range. Preferably, these values should be separated equally by a &quot;contour
+interval&quot;. For example, if the point value range is 34 thorough 98 a good
+set of contour values would be 30, 40, 50, 60, 70, 80, 90, and 100.</p>
+<p>MANUAL GENERATION OF CONTOURS</p>
+<p>A manual method of generating the contour lines would be, for each contour
+value, locate pairs of points that have values above and below the value and
+draw a line between the points. For each pair of points, one should space the
+distance of the line from each point proportionally. For example, for two points
+of values 22 and 54, the line for v=30 should be placed one-fourth of the
+distance from the 22 point, according to the following calculation:</p>
+<p>(30-22) / (54-22) = ¼</p>
+<p>THE EQUAL-SQUARE METHOD</p>
+<p>One method of generating contour lines on a computer is to divide the diagram
+into equal squares and then to estimate or calculate the values of each line
+intersection: i.e., each corner of each square. Next, for each contour value,
+the four sides of each square are examined to determine if the contour value is
+within the range of the values on the two points on the ends of the side. If the
+contour value is within the range of two or more sides, they are then connected
+by a line or lines. Figure 3 illustrates the procedure for one square.</p>
+<p align="center"><img border="0" src="Square.jpg" width="305" height="254"></p>
+<p>This method is recommended if the values of all corner points can be measured
+or expressed mathematically. The resulting contour lines are somewhat
+jagged and, if used on a map, should be redrawn by curving each line as it
+passes from one side to an adjacent side of a square. Figure 4 shows contour
+lines for a surface representing waves in a pan of water. The values for each
+corner point were computer-generated by using mathematical equations that
+simulated waves. The contours were formed by the equal-square method..</p>
+<p align="center"><img border="0" src="Waves.jpg" width="373" height="347"></p>
+<p>In structured dialog, the procedure for generating the contour lines in this
+manner is as follows:</p>
+<p><img border="0" src="StrucCode.jpg" width="560" height="279"></p>
+<p>The method will also work if the area is divided into rectangles or triangles
+of equal size and the third variable is known for each corner of the rectangle
+or triangle.</p>
+<p>RANDOM-POINT METHOD</p>
+<p>If the surface represented by the graph has randomly spaced points
+representing measurements, the computer generation of contour lines is more
+difficult. An example of this case is a weather map with contours or colored
+areas for different temperature ranges. The data for such a chart may be, for
+example, temperatures called in by volunteer weather spotters living in towns
+located throughout a state. Figure 5 is an example of an area with
+points representing towns. Each point is marked with a temperature value.</p>
+<p align="center"><img border="0" src="Figure5.jpg" width="423" height="366"></p>
+<p align="left">A contoured diagram of this sort can be formed by using a method
+borrowed from theoretical physics. For example, if one hangs up a sheet of iron
+and then attaches small, thermostatically controlled heaters to it at various
+points, the sheet will start to heat. Each place that touches one of the heaters
+will stay at the regulated temperature of the neighboring heater; the
+temperature for these will be &quot;fixed&quot;. The other places on the sheet
+will be &quot;variable&quot; and will start to heat in proportion to the average
+temperatures around it. After a while, the temperatures throughout the sheet
+will quit changing; the process will reach &quot;equilibrium&quot;. The
+mathematical procedure for simulating this is called &quot;relaxation&quot;. One can
+explain the process mathematically with Poisson’s equation:</p>
+<p align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img border="0" src="Poisson.jpg" width="237" height="173">&nbsp; </p>
+<p class="Standard">This equation essentially states that the rate of changes in
+incremental differences in temperature in both the x and y directions gradually
+decreases to zero.<span style="mso-spacerun:yes">&nbsp; </span>If we consider
+three incremental points in the x direction, the difference between P2 and P1 is
+P2 - P1. The difference between P3 and P2 is P3 – P2. The change in the
+difference between (P2-P1) and (P3-P2) is (P3-P2) - (P2-P1), and at equilibrium,
+that expression is equal to zero.<span style="mso-spacerun:yes">&nbsp; </span>This
+formula can be re-expressed as P2 = (P1 + P3)/2. In other words, at equilibrium,
+the middle point is the average of the two adjacent points. If we also consider
+points in the y direction, we can extend the formula to show that, at
+equilibrium, any variable point is at a temperature equal to the average of the
+four points around it.<o:p>
+</o:p>
+</p>
+<p class="Standard"><o:p>
+If we map the points on a fairly detailed matrix, as in the previous square
+diagram, and assign the points to the nearest line intersections, we can then
+treat the problem as the heated sheet of iron and wait for equilibrium. Then we
+will have reasonable values for all line intersections! The Figure 3 example was
+mapped onto a 100 by 100 element matrix having 10,000 line intersections.
+Each element containing a fixed value was biased such that it was negative and
+thus was recognizable as fixed; the variable elements were biased to be positive. A
+loop was performed 3000 times to change the value of each variable element to
+the average value of the four elements surrounding it. The resulting values were
+quantized into ranges between contour values and displayed in different colors.
+The outer boundary of each colored region is thus a contour line. Figure 7 has
+three views of the process: an early view, an intermediate view and the final
+equilibrium view.<o:p>
+</o:p>
+</p>
+<p class="Standard">The relaxation process is used by meteorologists. A map with
+contours showing air pressure is converted to a matrix and the relaxation
+procedure provides an aid to forecasting the weather. Relaxation can also be
+used to study growth patterns of microbes or population trends. The method can
+also be extended to three-dimensional space and be used to study chemical
+reactions and to design nuclear reactors.<o:p>
+&nbsp;
+</p>
+<p class="Standard">ACCURACY
+</p>
+<p class="Standard">Both the manual and computerized methods assume positions
+for the placement of contour lines between points. The degree of accuracy
+depends upon the number of points and the spacing between them. For example,
+Bryce Canyon in Utah has many tall, pointed rocks that are shaped like the
+Washington Monument. If one makes a squared grid for generating a contoured map
+of the park, any tall rock that lies entirely within a square will be ignored by
+the process.<span style="mso-spacerun:yes"> </span><o:p>
+</o:p>
+</p>
+<p class="Standard" align="center"><o:p>
+ &nbsp;<img border="0" src="Relax.jpg" width="511" height="759"></o:p>
+</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

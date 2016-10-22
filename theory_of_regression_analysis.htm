@@ -1,0 +1,40 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>THEORY OF REGRESSION ANALYSIS</title>
+</head>
+
+<body>
+
+<p>THEORY OF REGRESSION ANALYSIS</p>
+<p>If we have two vectors V and W, both having n elements, those vectors can
+also be treated as n by 1 matrices. If we form the dot product of V and W, the
+result is similar to the matrix multiplication of V-transposed and W.&nbsp;
+Similarly, we can define the dot product of two matrices A and B as the matrix
+multiplication of A-transpose and B. If A is of dimensions i by j, then B must
+be of dimensions i by k. The result would be of dimensions i by k.</p>
+<p>In regression analysis, we start with m sets of n values in an m by n matrix
+of X values on the left and an m-element Y vector of resultant values on the right. This is like a
+set of simultaneous equations, except that there are more than n equations.
+Moreover, each equation may not be exactly correct. The goal is to find an n-element
+vector C such that the formula</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+C1*X1+C2*X2+C3*X3+.............through Cn*Xn </p>
+<p>results in a &quot;best fit&quot; in the &quot;least-squares sense&quot;
+between the original Y values and the Y values obtained by using the formula
+with the calculated C coefficients. </p>
+<p>If the original right-side values are called Y and the new values are Y',
+then the goal is to find C values such that the square of (Y'-Y) is at a
+minimum. Because Y' is equal to X times C, this is the same as saying the goal
+is to find C such that the derivative of&nbsp; the square of ( X*C-Y) is zero.
+The derivative with respect to C is 2(X*C-Y)*X, or 2(X*X*C-X*Y). Solving this
+for C is the same as solving a set of n simultaneous equations having the matrix
+X-transpose*X on the left and X-transpose*Y on the right. </p>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+CALCULATE DETERMINANT OF A SQUARE MATRIX
+
+procedure determ      * to calculate matrix determinant
+
+read matrix x and n
+nfact=1
+for i=1 to n          *initialize permutation vector
+  p(i)=i
+  nfact=nfact*i
+next i 
+set d=0               *clear determinant value
+for np=1 to nfact                  *loop to calculate product term for one perm. 
+  term=1
+  for ip=1 to nfact
+    term=term*x(ip,p(ip))
+  next ip
+  term=sign(ip)*term               *sign = +1 or -1
+  d=d+term                   *add term to determinant value
+
+...................
+                 *loop to advance permutation generator           
+    if p(ip)=n then    *check for possible carry in p counter
+      if ip=1 then     *check for end of perm. generation  
+        output d
+        exit from procedure   *yes, output d and exit from procedure
+      end if
+    else
+      if ip not= 1 then
+        k=p(ip)+1
+        flag=0 
+        for i=1 to ip-1
+          if p(i)=k then
+            flag=1
+            exit from for loop
+          end if
+        end for
+      end if
+      if flag=0 then 
+        p(ip)=k
+        exit from loop     *value ok, 
+      end if 
+    end if
+    ip=ip-1                *back-up to prev. stage of p
+  end loop
+end loop
+   
+
+    
+    

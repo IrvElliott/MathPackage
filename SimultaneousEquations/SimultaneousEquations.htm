@@ -1,0 +1,158 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>SOLVING SIMULTANEOUS EQUATIONS</title>
+</head>
+
+<body>
+
+<p class="MsoNormal">SOLVING SIMULTANEOUS EQUATIONS</p>
+<p class="MsoNormal"><o:p>
+&nbsp;This chapter presents some ways to solve a set of simultaneous equations.
+The problem consists of n linear equations for n variables, represented by n
+equations, each with the sum of multiples of n independent variables on the left
+and a resultant value on the right.<span style="mso-spacerun:yes">&nbsp; </span>The
+goal is to determine the values of the n variables.</p>
+<p class="MsoNormal"><o:p>
+&nbsp;The method of solution<span style="mso-spacerun:yes"> </span><span style="mso-spacerun: yes">is
+based on a process called &quot;Gaussian Elimination&quot;, and </span>is based
+upon two facts:</p>
+<p class="MsoNormal" style="margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo2;
+tab-stops:list .5in"><span style="mso-list: Ignore; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">(1)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span>You can multiply any row of the problem by a constant without
+changing the solution.</p>
+<p class="MsoNormal" style="margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo2;
+tab-stops:list .5in"><span style="mso-list: Ignore; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">(2)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span><span style="mso-spacerun:yes">&nbsp;</span>You can add or
+subtract one row from another without changing the solution.</p>
+<p class="MsoNormal"><o:p>
+&nbsp;<span style="mso-spacerun:yes">&nbsp;</span>An example for n=4 follows:<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+<p class="MsoNormal"><o:p>
+&nbsp;4*x1 + 6*x2 + 3*5x3 + 9*x4 = 72</p>
+<p class="MsoNormal"><o:p>
+&nbsp;2*x1 + 5*x2 + 7*5x3 + 8*x4 = 98<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+<p class="MsoNormal">6*x1 + 8*x2 + 3*9x3 + 4*x4 = 56<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+<p class="MsoNormal">2*x1 + 5*x2 + 6*5x3 + 7*x4 = 62</p>
+<p class="MsoNormal"><o:p>
+&nbsp;The problem can be represented as an n by n matrix X and a vertical
+n-element vector Y, as follows:</p>
+<p class="MsoNormal"><o:p>
+&nbsp;<span style="mso-spacerun:yes">&nbsp;</span>4<span style="mso-spacerun:yes">&nbsp;
+</span>6<span style="mso-spacerun:yes">&nbsp; </span>3<span style="mso-spacerun:yes">&nbsp;
+</span>9<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>72</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;</span>2<span style="mso-spacerun:yes">&nbsp;
+</span>5<span style="mso-spacerun:yes">&nbsp; </span>7<span style="mso-spacerun:yes">&nbsp;
+</span>8<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>98</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;</span>6<span style="mso-spacerun:yes">&nbsp;
+</span>8<span style="mso-spacerun:yes">&nbsp; </span>3<span style="mso-spacerun:yes">&nbsp;
+</span>4<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>56</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp; </span>2<span style="mso-spacerun:yes">&nbsp;
+</span>5<span style="mso-spacerun:yes">&nbsp; </span>6<span style="mso-spacerun:yes">&nbsp;
+</span>7<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>62</p>
+<p class="MsoNormal"><o:p>
+The first and easiest method is to select the diagonal set of numbers starting
+at the upper left corner of X<span style="mso-spacerun:yes">&nbsp; </span>as<span style="mso-spacerun:yes">&nbsp;
+</span>“pivot points”.<span style="mso-spacerun:yes">&nbsp; </span>In the
+example, these are 4, 5, 3 and 7.<span style="mso-spacerun:yes">&nbsp; </span>Now,
+do the<span style="mso-spacerun:yes">&nbsp; </span>following for each pivot:</p>
+<p class="MsoNormal" style="margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo1;
+tab-stops:list .5in"><span style="mso-list: Ignore; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">(1)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span>divide each value in the pivot row, including both X and Y values,
+by the pivot point value. This will make the pivot point equal to one.</p>
+<p class="MsoNormal" style="margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo1;
+tab-stops:list .5in"><span style="mso-list: Ignore; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">(2)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span><span style="mso-spacerun:yes">&nbsp;</span>For each non-pivot
+row,</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;</span>(a) Take the
+value that is both in that row and is also in the same column as the pivot and
+call</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>that value v.</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;</span>(b)<span style="mso-spacerun:yes">&nbsp;
+</span>For each non-pivot row, subtract v times each element of the pivot row
+from each</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>corresponding element of the non-pivot row.</p>
+<p class="MsoNormal"><o:p>
+&nbsp;Doing this for the example would give:</p>
+<p class="MsoNormal"><o:p>
+&nbsp;<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>1<span style="mso-spacerun:yes">&nbsp;
+</span>0<span style="mso-spacerun:yes">&nbsp; </span>0<span style="mso-spacerun:yes">&nbsp;
+</span>0<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>71.0000</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>0<span style="mso-spacerun:yes">&nbsp;
+</span>1<span style="mso-spacerun:yes">&nbsp; </span>0<span style="mso-spacerun:yes">&nbsp;
+</span>0<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>-60.6667</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>0<span style="mso-spacerun:yes">&nbsp;
+</span>0<span style="mso-spacerun:yes">&nbsp; </span>1<span style="mso-spacerun:yes">&nbsp;
+</span>0<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>28.6667</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>0<span style="mso-spacerun:yes">&nbsp;
+</span>0<span style="mso-spacerun:yes">&nbsp; </span>0<span style="mso-spacerun:yes">&nbsp;
+</span>1<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>7.3333</p>
+<p class="MsoNormal"><o:p>
+&nbsp;<span style="mso-spacerun:yes">&nbsp;&nbsp; </span><span style="mso-spacerun: yes">This
+leaves the solution in the vector on the right:</span></p>
+<p class="MsoNormal"><o:p>
+&nbsp;<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>x1 =<span style="mso-spacerun:yes">&nbsp;
+</span>71<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>x2=-60.6667<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>x3=28.6667<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>x4=7.3333</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;</span>If it is
+impossible to reduce the<span style="mso-spacerun:yes">&nbsp; </span>X array to
+an array of 1's in the diagonal and otherwise 0's, the original problem is
+invalid and thus has no solution.</p>
+<p class="MsoNormal"><o:p>
+&nbsp;A second method is said to reduce error in the results. It is like the
+first method, but the pivots are not necessarily on the diagonal and the rows
+are not necessarily processed from top to bottom.<span style="mso-spacerun:yes">&nbsp;
+</span>Thus, the resultant vector is scrambled and must be unscrambled after the
+n executions.<span style="mso-spacerun:yes">&nbsp; </span>Two more vectors are
+added to the problem. These are a vertical n-element row vector R<span style="mso-spacerun:yes">&nbsp;
+</span>at the left of X and a horizontal column vector C above X. These are used
+to record the selections of pivots so that the resulting answers can be
+unscrambled.. Initially, R and C are set to zero; during processing, each pivot
+is recorded by placing its column number into the R vector element to the left
+and a 1 into the C vector element above.The procedure consists of<span style="mso-spacerun:yes">&nbsp;
+</span>n executions of the following steps:</p>
+<p class="MsoNormal"><o:p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="mso-list: Ignore; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">(1)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span>Set each value in vectors R and C<span style="mso-spacerun:yes">&nbsp;
+</span>to zero.</p>
+<p class="MsoNormal" style="margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo3;
+tab-stops:list .5in"><span style="mso-list: Ignore; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman">(2)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;
+</span></span>Perform the following steps n times:</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>(a) Examine all of the matrix X values that<span style="mso-spacerun:yes">&nbsp;
+</span>are not in a row marked<span style="mso-spacerun:yes">&nbsp; </span>in R
+nor a column marked</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>in C. Choose the value that is largest in absolute value as the pivot,
+then record it in R and C.</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>(b) Divide each element<span style="mso-spacerun:yes">&nbsp; </span>in
+the pivot's row by the pivot value. For each row not belonging to the</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>pivot's row, take the value that is in that row and is also in the same
+column as the pivot and</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>call that value v.</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>(c) Subtract v times each element of the pivot row from each
+corresponding element of all other</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>rows that are unmarked in R.</p>
+<p class="MsoNormal"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>(3) Unscramble the Y vector results, using the column values in the R
+vector as<span style="mso-spacerun:yes">&nbsp; </span>a guide.</p>
+<p class="MsoNormal"><o:p>
+A third method is to use determinants. The method is described in the
+DETERMINANTS section.</o:p>
+</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>REGRESSION ANALYSIS AND CURVE FITTING</title>
+</head>
+
+<body>
+
+<p>REGRESSION ANALYSIS AND CURVE FITTING</p>
+
+<p>In the following discussions, each individual x or y value is denoted by
+lower-case x or y; the matrix of x functions and vector of y values are denoted
+by upper-case X and Y.&nbsp;</p>
+<p>If we have a set of measurements of&nbsp; independent variables x and a
+dependent variables y and we want to determine the relationship between the x
+and y values, it may be informative to plot the values of x and y. As an
+example, assume that we have an oven and we would like to create a formula for
+predicting the oven temperature versus the time it has been turned on. If we
+start the oven then record several samples of the elapsed time and the
+temperature, the data and the plot may look like this:</p>
+<p><img border="0" src="ov0out.jpg" width="800" height="424"></p>
+<p>Next, we may attempt to create a simple &quot;target formula&quot; that gives the
+relationship of temperature to time, as follows:</p>
+<p align="left">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img border="0" src="file:///C:/Amatrix/ov1out.jpg" width="599" height="424"></p>
+<p>Temperature = C*Time&nbsp;&nbsp; where C is a constant.</p>
+<p>This can be done manually by drawing a straight line through the cloud of
+points, trying to assure that the sum of the vertical distances from each point
+to the line is at its minimum, then by determining C, the slope of the line. The
+above graph shows a number of points for the oven example and a line chosen
+manually.</p>
+<p>A better way is to use a process called &quot;regression analysis&quot;. In
+psychology, the term &quot;regression&quot; refers to the return to a previous
+state. For example, an adult being psychoanalyzed may temporarily
+&quot;regress&quot; mentally to childhood. The term sounds as though it is the
+opposite of &quot;progression&quot; and it implies a return to a simpler state.
+In mathematics, the term &quot;regression&quot; means to determine the
+relationship between several independent variables and one dependent variable.
+For the above example with just one independent variable, the regression formula
+for C is as follows:</p>
+<p align="center"><img border="0" src="C.jpg" width="412" height="173"></p>
+<p>REGRESSION USING INDEPENDENT FUNCTIONS</p>
+<p>In the above example, the independent elements of X were just simple
+numeric values; the result was a single constant giving a rather poor
+relationship between X and Y.&nbsp; Regression can also be used to generate a relationship of <u>functions</u>
+versus a dependent variable. For example, if we go back to the original OVEN
+problem, we see that the line on the graph does not fit the points very well.
+One reason is that the target formula</p>
+<p>y = C * x&nbsp; where y = temperature and x = time</p>
+<p>forces the y to be zero when the x is zero. Another reason: a curved line
+would fit the points better. We can improve the fit by using the following
+target formula:</p>
+<p><img border="0" src="Ov5eqn2.jpg" width="292" height="57"></p>
+<p>To do this, we use an m by n&nbsp; matrix X that has four columns representing the four
+functions of X and also a Y vector of dimension m, as follows:</p>
+<p><img border="0" src="Ov6out.jpg" width="305" height="267"></p>
+<p>Notice that the left-hand column contains m ones. This is because x to the
+power zero is equal to one, no matter what the value x may be. This is a trick
+to introduce a constant into the target equation, and thus, to avoid having the
+line to go through the graph origin (x=0, y=0).</p>
+<p>Next, the regression process is performed in three steps, as shown in the
+following illustration.&nbsp;</p>
+<p>Step 1:&nbsp; The transpose of the X matrix and the original X matrix are
+multiplied. Because X transpose is n by m and X is m by n, the result is a
+square n by n matrix A.</p>
+<p>Step 2: The transpose of X and the Y vector are multiplied, resulting in a B
+vector of dimension n.</p>
+<p>Step 3: The A matrix and the B vector are solved as a set of simultaneous
+equations, giving the n constants C.</p>
+<p><img border="0" src="Regression.jpg" width="514" height="481"></p>
+<p>For the oven calculation by this method, the resulting C values are:</p>
+<p><img border="0" src="ov5out1.jpg" width="135" height="109"></p>
+<p>The resulting graph below shows that the line for the calculated function now
+fits the points better. The mean square error value is considerably better than
+for the first oven temperature calculation.</p>
+<p><img border="0" src="ov5out2.jpg" width="595" height="440"></p>
+<p>REGRESSION USING OTHER FUNCTIONS</p>
+<p>The regression calculation is tailored for determining the constants in a
+target equation consisting of a number of terms separated (if more than one
+term) by &quot;+&quot; operators. Each term of the target equation is a constant
+that is to be determined and that is multiplied by a variable or function of a variable.</p>
+<p>Some equations do not fit this pattern. For example, suppose that someone has
+an experiment in which an organic material grows exponentially. For this case,
+the target formula may be as follows:</p>
+<p>volume = k1*exp(k2*time)&nbsp;&nbsp; .... k1 and k2 are to be found.</p>
+<p>The target formula can be converted to the form required for the regression
+calculation by re-expressing it by taking the logarithm of both sides, as
+follows:</p>
+<p>ln(volume) = ln(k1) + k2*time</p>
+<p>The X matrix for the calculation would have a column of 1's and a column of
+measurement times ; the Y vector would contain the logarithms of the volume.</p>
+<p>After the solution to find C0 and C1, the formula
+becomes&nbsp;&nbsp;&nbsp;&nbsp; k1 = exp(C0) and k2 = C1.</p>
+<p>REGRESSION USING ORTHOGONAL FUNCTIONS</p>
+<p>There are sets of functions that are orthogonal over a range of input values.
+Each member of a set is orthogonal to every other member of the set. Some of
+these are the Chebychev, Legendre, Hermite, Laguerre, Jacobi and Fourier functions. Instead of using matrix
+multiply to generate the square matrix,&nbsp; whereby each element is a dot
+product, each element is instead the integral of the product of two polynomials.
+Step 1 is greatly simplified because the square matrix X-transpose times X would be mostly zero; it
+would be a diagonal matrix. Instead of the matrix multiply, just a vector of the
+prospective diagonal elements
+is calculated. Step 3 is also simplified; to calculate the C coefficients, each
+B vector element is merely divided by the corresponding diagonal element. If the
+diagonal elements are all ones, step three is not necessary.</p>
+<p>The next illustration is an aid to understanding orthogonal
+functions. Shown here are plots of three functions: sine, cosine and sine*cosine
+(the product of sine and cosine). The integral of a function gives the area of the curve under the function;
+thus, the area that is shaded is the integral of the product of sine and cosine.
+If we think of the integration as the summation of a large number of
+equally-spaced samples of the curve over the interval 2*pi, the shaded area is
+like the dot product of two vectors containing the values for sine and cosine.
+If we think of the integral as the summation of a large number of equally spaced
+samples of sine*cosine over an interval of 2*pi, the shaded area of the graph is
+similar to the dot product of sine and cosine vectors. Note that the shading
+shows two positive areas and two negative areas. Thus, the net area is zero so
+that the two functions sine and cosine are orthogonal to each other.&nbsp;</p>
+<p>
+<font FACE="Times New Roman" LANG="JA">
+<img border="0" src="sinxcos.jpg" width="620" height="445">
+</font>
+
+</p>
+<p>Orthogonal sets of sine and cosine functions are used to determine the
+frequencies in a wave pattern. For example, a procedure known as the &quot;Fourier
+Transform&quot; is used to determine the frequencies in a sound wave. If the input to the process is a musical
+chord of, for example, middle C and high C, the process can detect that and the output is a vector
+showing the amplitude of those two notes.&nbsp;</p>
+<p>The input for the Fourier Transform is the a sound sample of length equal to
+the wave length of the lowest suspected frequency in the sample. The target
+formula is as follows; Y is the sample, X is the lowest frequency, the A's and
+B's are calculated by the process.</p>
+<p>Y = A0&nbsp; + A1*SIN(X) + B1*COS(X) + A2*SIN(2*X) + B2*COS(2*X) + A3*SIN(3X)
++ B3*COS(3*X) +&nbsp; ...........ETC.&nbsp;</p>
+<p>A refinement of the procedure is the &quot;Fast Fourier Transform&quot; that
+can process a sound wave to provide a complete spectrum of the component
+frequencies in it. The process is used in voice
+recognition systems.&nbsp;&nbsp;</p>
+<font FACE="Times New Roman" LANG="JA">
+</font>
+
+</body>
+
+</html>
